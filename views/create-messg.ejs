@@ -1,0 +1,77 @@
+<div class="container-fluid">
+    <div class="card"> <br>
+        <div class="row">
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-title">
+                        <h4>
+                            <%= userData.mee.surname %>
+                                <%= userData.mee.otherNames %>
+                        </h4>
+                    </div>
+                    <div class="card-body">
+                        <p class="text-muted m-b-15 text-capitalize">
+                            <%= userData.mee.department %>
+                        </p>
+                        <p class="text-muted m-b-15 text-capitalize">
+                            <%= userData.mee.office %>
+                        </p>
+                        <img src="<%= userData.mee.profilePix %>" class="img-rounded img-fluid" alt="Cinque Terre">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <h1 class="p-4 mt-5 ml-5">Message Box</h1>
+                <div>
+                    <a href="/new/messge" class="btn btn-outline-primary ml-5 active">Compose Message</a>
+                    <a href="/inbox/<%= userData.mee.user_id %>" class="btn btn-outline-primary ml-2"><i class="fa fa-inbox"></i> Inbox</a>
+                    <a href="/messge/<%= userData.mee.user_id %>" class="btn btn-outline-primary ml-2"><i class="fa fa-envelope-o"></i> Sent</a>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-md-10 text-capitalize p-2">
+                <form method="POST" action="/send/messg" class="ml-5">
+
+                    <h1 class="h3 mb-3 fw-normal text-right">Compose A Message</h1>
+
+                    <div class="form-floating">
+                        <label for="floatingInput">Title</label>
+                        <input type="text" class="form-control mb-3" id="floatingInput" placeholder="Message Title"
+                            name="title" required>
+                    </div>
+                    <div class="form-floating">
+                        <label for="floatingInput">Sender</label>
+                        <input type="text" class="form-control mb-3" id="floatingInput"
+                            value="<%= userData.mee.surname %> <%= userData.mee.otherNames %>" name="sender" readonly>
+                    </div> <br>
+
+                    <div class="mb-3"> <label for="">Reciever</label>
+                        <select id="department" name="reciever" class="form-control" required>
+                            <option >Select User</option>
+                            <% allUser.forEach((staff)=> { %>
+                                <option class="p-3" value="<%= staff.user_id %>/<%= staff.surname %> <%= staff.otherNames %>">
+                                 <%= staff.surname %> <%= staff.otherNames %>
+                                </option>
+                                <% }); %>
+                        </select>
+                    </div><br>
+                    
+
+                    <div class="form-floating"><label for="floatingPassword">Message</label>
+                        <textarea name="content" placeholder="Enter Message Here"
+                            class="form-control h-100" rows="4" required></textarea>
+                    </div>
+                    
+
+                    <br><br>
+                    <button class="w-100 btn btn-lg btn-primary" type="submit">Send</button>
+                    <p class="mt-5 mb-3 text-muted text-center">&copy; JV Management Consulting</p>
+
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div>

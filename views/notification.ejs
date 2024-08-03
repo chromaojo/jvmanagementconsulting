@@ -1,0 +1,144 @@
+<div class="row">
+  <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+
+      <div class="carousel-inner">
+          <div class="carousel-item active">
+
+              <img src="/assets/img/ban.png" alt="Announcement Banne" height="220vmax" width="100%">
+
+              <div class="container">
+                  <div class="carousel-caption">
+                      <h2 class="text-capitalize ">
+                          <%= announce.title %>
+                      </h2>
+                      <p class="text-capitalize text-dark">
+                          <%= announce.message %>
+                      </p>
+
+                  </div>
+              </div>
+          </div>
+
+          <div class="carousel-item">
+              <img src="/assets/img/ban.png" alt="Announcement Banne" height="220vmax" width="100%">
+              <div class="container">
+                  <div class="carousel-caption ">
+                      <h2 class="text-capitalize">
+                          <%= announce.title2 %>
+                      </h2>
+                      <p class="text-capitalize text-dark">
+                          <%= announce.message2 %>
+                      </p>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-8">
+    <div class="card">
+      <div class="card-title">
+        <h4>Recent Notification </h4>
+
+      </div>
+      <div class="recent-comment">
+        <% if (userNot=="" ) { %>
+          <h3>There is no Notification at the moment</h3>
+          <% } else{%>
+            <% userNot.forEach((department)=> { %>
+              <div class="media">
+                <div class="media-left">
+                  <a href="#">
+                    <img class="media-object" src="<%= userData.mee.profilePix %>" alt="...">
+                  </a>
+                </div>
+                <div class="media-body">
+                  <h4 class="media-heading">
+                    <%= department.title %>
+                  </h4>
+                  <p>
+                    <%= department.message %>
+                  </p>
+                  <div class="comment-action">
+                    <div class="badge badge-success">
+                      <%= userData.mee.surname %>
+                        <%= userData.mee.otherNames %>
+                    </div>
+                    <span class="m-l-10">
+                      <a href="#">
+                        <i class="ti-check color-success"></i>
+                      </a>
+                      <a href="#">
+                        <i class="ti-close color-danger"></i>
+                      </a>
+                      <a href="#">
+                        <i class="fa fa-reply color-primary"></i>
+                      </a>
+                    </span>
+                  </div>
+                  <% const timeg=department.message.split('@') %>
+                    <p class="comment-date">October 21, 2017 || <%= timeg[1] %>
+                    </p>
+                </div>
+              </div>
+
+              <% }); %>
+                <% } %>
+
+      </div>
+    </div>
+  </div>
+  <div class="col">
+
+    <div class="card nestable-cart">
+     
+      <div class="card-title">
+        <h4>Report Analysis</h4>
+
+
+        <p class="text-center p-3 mt-2">Very Poor performance <br> You Need To Get Serious</p>
+      </div>
+      <div class="card-body m-t-15 text-center text-center">
+        <input class="knob" data-fgColor="#f08f7b" data-thickness=".4" readonly value="25 ">
+      </div> <br>
+
+
+    </div>
+    <a href="/staff/leave/request">
+      <div class="card p-0">
+          <p class="text-center mt-2">Leave Application </p>
+          <div class="stat-widget-three home-widget-three p-3">
+              <div class="border">
+                  <div class="stat-icon bg-facebook">
+                      <i class="ti-pulse"></i>
+                  </div>
+                  <div class="stat-content">
+                      <div class="stat-digit"><small>Apply For Leave?</small></div>
+                      <div class="stat-text">Apply Early</div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </a>
+  <a href="/staff/create/task">
+      <div class="card p-0">
+          <p class="text-center mt-2">Performance Tracker </p>
+          <div class="stat-widget-three home-widget-three p-3">
+              <div class="border">
+                  <div class="stat-icon bg-primary">
+                      <i class="ti-panel"></i>
+                  </div>
+                  <div class="stat-content">
+                      <div class="stat-digit"><small>Performance</small></div>
+                      <div class="stat-text">Tracker</div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </a>
+    <!-- /# card --> <br>
+  </div>
+</div>

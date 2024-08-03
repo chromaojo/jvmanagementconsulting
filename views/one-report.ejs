@@ -1,0 +1,78 @@
+<section id="main-content"><title>|| <%= report.date %> - <%= report.title %> By <%= report.name %> </title>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <h3 class="text-right text-capitalize p-3">Report Title : <%= report.title %> 
+                <% if (userData.mee.user_id == report.user_id && report.progress === 'pending') { %>
+                    <a href="/add/report/<%= report.report_id %>" class="btn btn-primary btn-sm">Edit</a>
+                    <form action="/submitR/<%= report.id %>" method="POST">
+                        <button type="submit"  class="btn btn-outline-primary btn-sm">Submit Report</button>
+
+                    </form>
+                    <% } else{%> 
+                        <div>
+                            <i class="fa fa-check-circle-o text-success"></i> Submitted
+                        </div>
+                    <% } %> 
+                </h3>
+                
+                
+                <div class="bootstrap-data-table-panel"> 
+                    <div class="table-responsive">
+                        <table id="bootstrap-data-table-export" class="table table-striped table-bordered">
+                            <thead>
+                                <% let count=1; %>
+                                    <tr>
+                                        <%= report.date %> || <%= report.time %> <br> <h4 class="text-end pb-3 pt-1">Report By : <%= report.name %> </h4>
+                                    </tr>
+                                    <tr>
+                                        <th>S/N</th>
+                                        <th>Action</th>
+                                        <th>Outcome</th>
+                                        <th>Task Status</th>
+                                        <th>#</th>
+                                        
+                                    </tr>
+                            </thead>
+                            <tbody>
+                                <% oneRept.forEach((rept)=> { %>
+                                    <tr>
+                                        <th scope="row">
+                                            <%= count++ %>
+                                        </th>
+                                        <td>
+                                            <%= rept.action %>
+                                        </td>
+                                        <td>
+                                            <% if (rept.outcome) { %>
+                                                <% rept.outcome.split('\n').forEach(function(line) { %>
+                                                    <% if (line.trim()) { %>
+                                                        <p> <%= line %></p>
+                                                    <% } %>
+                                                <% }); %>
+                                            <% } %>
+                                            
+        
+                                        </td>
+                                        <td class="color-primary">
+                                            <%= rept.status %>
+                                        </td>
+                                        <td>
+                                            <span class="badge badge-primary">
+                                                Saved
+                                            </span>                                            
+                                        </td>
+                                    </tr>
+                                    <% }); %>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <!-- /# card -->
+        </div>
+        <!-- /# column -->
+    </div>
+    <!-- /# row -->
+</section>

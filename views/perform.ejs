@@ -1,0 +1,120 @@
+<div class="container"> Performsnce
+  <div class="row">
+
+    
+    <div class="col-md-4">
+      <div class="card nestable-cart">
+        <div class="card-title">
+          <h4>Report Analysis</h4>
+
+          <% if (percent<= 30 ) { %> 
+            <h3 class="text-center p-3 mt-5">Very Poor performance <br> You Need To Get Serious</h3>
+          </div>
+          <div class="card-body m-t-15 text-center text-center">
+            <input class="knob" data-fgColor="#f08f7b" data-thickness=".4" readonly value="<%= percent %> ">
+          </div>
+          <% } else if( percent <=49){%>
+            <h3 class="text-center p-3 mt-5">Low performance <br> You Need To Put In More Work</h3>
+          </div>
+          <div class="card-body m-t-15 text-center text-center">
+            <input class="knob" data-fgColor="#fc3007" data-thickness=".4" readonly value="<%= percent %> ">
+          </div>
+
+          <% } else if( percent <=59){%>
+            <h3 class="text-center p-3 mt-5">Average Performance <br> You Need An Extra Effort</h3>
+          </div>
+          <div class="card-body m-t-15 text-center text-center">
+            <input class="knob" data-fgColor="#5cbcf3" data-thickness=".4" readonly value="<%= percent %> ">
+          </div>
+          <% } else if( percent <=69){%>
+            <h3 class="text-center p-3 mt-5">Good Performance <br> Don't Relent</h3>
+          </div>
+          <div class="card-body m-t-15 text-center text-center">
+            <input class="knob" data-fgColor="#5cbcf3" data-thickness=".4" readonly value="<%= percent %> ">
+          </div>
+          <% } else if( percent <=100){%>
+            <h3 class="text-center p-3 mt-5">Great Performance <br> You are a Great Achiever</h3>
+          </div>
+          <div class="card-body m-t-15 text-center text-center">
+            <input class="knob" data-fgColor="#002ec4" data-thickness=".4" readonly value="<%= percent %> ">
+          </div>
+
+            <% } else{%>
+          <h3 class="m-5 text-center mb-5">There is no report to analyse at the moment</h3>
+            <br>
+            <% } %>
+
+          
+        <!-- /# card -->
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card nestable-cart">
+        <div class="card-title">
+          <h4>Read Only</h4>
+          <h3 class="text-center p-3 mt-5">Neatness :</h3>
+          <div class="card-title-right-icon">
+            <ul>
+  
+            </ul>
+          </div>
+        </div>
+        <div class="card-body m-t-15 text-center text-center">
+          <input class="knob" data-fgColor="#66EE66" data-thickness=".4" readonly value="29">
+        </div>
+        <!-- /# card -->
+      </div>
+    </div>
+
+        <div class="col-md-4">
+      <div class="card nestable-cart">
+        <div class="card-title">
+          <h4>Task Tracker Analysis</h4>
+
+          <% if (percent<= 30 ) { %> 
+            <h3 class="text-center p-3 mt-5">Very Poor performance <br> You Need To Get Serious</h3>
+          </div>
+          <div class="card-body m-t-15 text-center text-center">
+            <input class="knob" data-fgColor="#f08f7b" data-thickness=".4" readonly value="<%= percent %>%">
+          </div>
+          <% } else if( percent <=49){%>
+            <h3 class="text-center p-3 mt-5">Low performance <br> You Need To Put In More Work</h3>
+          </div>
+          <div class="card-body m-t-15 text-center text-center">
+            <input class="knob" data-fgColor="#fc3007" data-thickness=".4" readonly value="<%= percent %>%">
+          </div>
+
+          <% } else if( percent <=59){%>
+            <h3 class="text-center p-3 mt-5">Average Performance <br> You Need An Extra Effort</h3>
+          </div>
+          <div class="card-body m-t-15 text-center text-center">
+            <input class="knob" data-fgColor="#5cbcf3" data-thickness=".4" readonly value="<%= percent %>%">
+          </div>
+          <% } else if( percent <=69){%>
+            <h3 class="text-center p-3 mt-5">Good Performance <br> Don't Relent</h3>
+          </div>
+          <div class="card-body m-t-15 text-center text-center">
+            <input class="knob" data-fgColor="#5cbcf3" data-thickness=".4" readonly value="<%= percent %>%">
+          </div>
+          <% } else if( percent <=100){%>
+            <h3 class="text-center p-3 mt-5">Great Performance <br> You are a Great Achiever</h3>
+          </div>
+          <div class="card-body m-t-15 text-center text-center">
+            <input class="knob" data-fgColor="#002ec4" data-thickness=".4" readonly value="<%= percent %>%">
+          </div>
+
+            <% } else{%>
+          <h3 class="m-5 text-center mb-5">There is no report to analyse at the moment</h3>
+            <br>
+            <% } %>
+
+          
+        <!-- /# card -->
+      </div>
+    </div>
+  </div>
+
+  
+  
+</div>
+</div>

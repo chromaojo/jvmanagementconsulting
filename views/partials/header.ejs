@@ -1,0 +1,758 @@
+<% if (userData.mee.user_role==='management' ) { %>
+    <div class="sidebar sidebar-hide-to-small sidebar-shrink sidebar-gestures">
+        <div class="nano">
+            <div class="nano-content">
+                <div class="logo">
+                    <a href="/">
+                        <span>
+                            <img src="/assets1/images/logo.jpg" alt="JV Management Consulting LOGO" width="150vh"
+                                class="p-2" />
+                        </span>
+                    </a>
+                </div>
+                <ul>
+                    <li class="label">Main</li>
+                    <li>
+
+                        <a href="/dashboard">
+                            <i class="ti-home"></i> Home
+                        </a>
+                    </li>
+                    <li>
+                        <a class="sidebar-sub-toggle">
+                            <i class="ti-user"></i> Profile
+                            <span class="sidebar-collapse-icon ti-angle-down"></span>
+                        </a>
+                        <ul>
+                            <li>
+                                <a href="/staff/passW">Edit Password</a>
+                            </li>
+                            <li>
+                                <a href="/staff/edtProf">Edit Profile</a>
+                            </li>
+                            <li>
+                                <a href="/staff/profile">My Profile</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="sidebar-sub-toggle">
+                            <i class="ti-email"></i> Message
+                            <span class="sidebar-collapse-icon ti-angle-down"></span>
+                        </a>
+                        <ul>
+                            <li>
+                                <a href="/new/messge">Create Message</a>
+                            </li>
+                            <li>
+                                <a href="/inbox/<%= userData.mee.user_id %>">Inbox </a>
+                            </li>
+                            <li>
+                                <a href="/messge/<%= userData.mee.user_id %>">Sent </a>
+                            </li>
+
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="/staff/dept">
+                            <i class="ti-direction"></i> Departments
+                        </a>
+                    </li>
+                    <li>
+                        <a class="sidebar-sub-toggle">
+                            <i class="ti-notepad"></i> Vacancies
+                            <span class="sidebar-collapse-icon ti-angle-down"></span>
+                        </a>
+                        <ul>
+                            <li>
+                                <a href="/create-vacancy">Create Vacancies</a>
+                            </li>
+                            <li>
+                                <a href="/vacancies">Available Vacancies </a>
+                            </li>
+
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#/#">
+                            <i class="ti-star"></i> Trainnings
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/vacancies">
+                            <i class="ti-view-list-alt"></i> Registered SME</a>
+                    </li>
+
+                    <li>
+                        <a class="sidebar-sub-toggle">
+                            <i class="ti-stats-up"></i> Performance
+                            <span class="sidebar-collapse-icon ti-angle-down"></span>
+                        </a>
+                        <ul>
+                            <li>
+                                <a href="#.">Best Staff Form</a>
+                            </li>
+                            <li>
+                                <a href="#.">Appraisal</a>
+                            </li>
+                            <li>
+                                <a href="/mgt/perform">My Performances</a>
+                            </li>
+
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="sidebar-sub-toggle">
+                            <i class="ti-pencil-alt"></i>Task Tracker
+                            <span class="sidebar-collapse-icon ti-angle-down"></span>
+                        </a>
+                        <ul>
+                            <li>
+                                <a href="/staff/create/task">Create Task</a>
+                            </li>
+                            <li>
+                                <a href="/staff/task">View All Tasks</a>
+                            </li>
+                            <li>
+                                <a href="/staff/task/<%= userData.mee.user_id %>">View My Tasks</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a class="sidebar-sub-toggle">
+                            <i class="ti-check-box"></i> Reports
+                            <span class="sidebar-collapse-icon ti-angle-down"></span>
+                        </a>
+                        <ul>
+                            <li>
+                                <a href="/create/report">Create Report</a>
+                            </li>
+                            <li>
+                                <a href="/dashboard/<%= userData.user_id %>">My Report</a>
+                            </li>
+
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="sidebar-sub-toggle">
+                            <i class="ti-clipboard"></i> Leave
+                            <span class="sidebar-collapse-icon ti-angle-down"></span>
+                        </a>
+                        <ul>
+                            <li>
+                                <a href="/staff/leave/request">Leave Form</a>
+                            </li>
+                            <li>
+                                <a href="/staff/myleave">My Leave </a>
+                            </li>
+                            <li>
+                                <a href="/staff/leave">All Leave</a>
+                            </li>
+
+                        </ul>
+                    </li>
+                    <li class="label">Management Menu</li>
+                    <li>
+                        <a class="sidebar-sub-toggle" href="#">
+                            <i class="ti-pencil-alt"></i>Create
+                            <span class="sidebar-collapse-icon ti-angle-down"></span>
+                        </a>
+                        <ul>
+
+                            <li>
+                                <a href="/mgt/dept">Create Department</a>
+                            </li>
+                            <li>
+                                <a href="/mgt/new">Create Management</a>
+                            </li>
+                            <li>
+                                <a href="/staff/new">Create Staff</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="sidebar-sub-toggle" href="#">
+                            <i class="ti-user"></i>Users
+                            <span class="sidebar-collapse-icon ti-angle-down"></span>
+                        </a>
+                        <ul>
+                            <li>
+                                <a href="/mgt/all-current">View Current Staff</a>
+                            </li>
+                            <li>
+                                <a href="/mgt/all-resigned">View Resigned Staff</a>
+                            </li>
+                            <li>
+                                <a href="/mgt/all-sacked">View Sacked Staff</a>
+                            </li>
+
+
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="/mgt/jvmc_sme">
+                            <i class="ti-view-list-alt"></i> Registered SME</a>
+                    </li>
+                    <li>
+                        <a href="/mgt/links">
+                            <i class="ti-home"></i> Links
+                        </a>
+                    </li>
+                    <li class="label">Finance</li>
+                    <li>
+                        <a class="sidebar-sub-toggle">
+                            <i class="ti-money"></i>Pay-Roll
+                            <span class="sidebar-collapse-icon ti-angle-down"></span>
+                        </a>
+                        <ul>
+                            <li>
+                                <a href="/staff/generator">Generate</a>
+                            </li>
+                            <li>
+                                <a href="/staff/myPay/<%= userData.mee.user_id %>">My Pay-Roll</a>
+                            </li>
+                            <li>
+                                <a href="/staff/monthly">Monthly Pay-Roll</a>
+                            </li>
+
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="/staff/settings">
+                            <i class="ti-settings"></i> Settings
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/logout"> <i class="ti-close"></i> Logout</a>
+                    </li>
+                    <li>
+                        <a href="#"></a>
+                    </li>
+                    <li>
+                        <a href="#"></a>
+                    </li>
+                    <li>
+                        <a href="#"></a>
+                    </li>
+                    <li>
+                        <a href="#"></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <% } else if (userData.mee.user_role==='human resource' ){%>
+        <div class="sidebar sidebar-hide-to-small sidebar-shrink sidebar-gestures">
+            <div class="nano">
+                <div class="nano-content">
+                    <div class="logo">
+                        <a href="/dashboard">
+                            <span>
+                                <img src="/assets1/images/logo.jpg" alt="JV Management Consulting LOGO" width="150vh"
+                                    class="p-2" />
+                            </span>
+                        </a>
+                    </div>
+                    <ul>
+                        <li class="label">Main</li>
+                        <li>
+
+                            <a href="/dashboard">
+                                <i class="ti-home"></i>Home
+                            </a>
+                        </li>
+                        <li>
+                            <a class="sidebar-sub-toggle" href="/staff/profile">
+                                <i class="ti-user"></i> Profile
+                                <span class="sidebar-collapse-icon ti-angle-down"></span>
+                            </a>
+                            <ul>
+                                <li>
+                                    <a href="/staff/profile">My Profile</a>
+                                </li>
+                                <li>
+                                    <a href="/staff/passW">Edit Password</a>
+                                </li>
+                                <li>
+                                    <a href="/staff/edtProf">Edit Profile</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="sidebar-sub-toggle">
+                                <i class="ti-email"></i> Message
+                                <span class="sidebar-collapse-icon ti-angle-down"></span>
+                            </a>
+                            <ul>
+                                <li>
+                                    <a href="/new/messge">Create Message</a>
+                                </li>
+                                <li>
+                                    <a href="/inbox/<%= userData.mee.user_id %>">Inbox </a>
+                                </li>
+                                <li>
+                                    <a href="/messge/<%= userData.mee.user_id %>">Sent </a>
+                                </li>
+
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="/staff/dept">
+                                <i class="ti-direction"></i> Departments
+                            </a>
+                        </li>
+                        <li>
+                            <a class="sidebar-sub-toggle">
+                                <i class="ti-notepad"></i> Vacancies
+                                <span class="sidebar-collapse-icon ti-angle-down"></span>
+                            </a>
+                            <ul>
+                                <li>
+                                    <a href="/create-vacancy">Create Vacancies</a>
+                                </li>
+                                <li>
+                                    <a href="/vacancies">Available Vacancies </a>
+                                </li>
+
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#/#">
+                                <i class="ti-star"></i> Trainnings
+                            </a>
+                        </li>
+                        <li>
+                            <a class="sidebar-sub-toggle">
+                                <i class="ti-stats-up"></i> Performance
+                                <span class="sidebar-collapse-icon ti-angle-down"></span>
+                            </a>
+                            <ul>
+                                <li>
+                                    <a href="#">Best Staff Form</a>
+                                </li>
+                                <li>
+                                    <a href="#..">Appraisal Form</a>
+                                </li>
+                                <li>
+                                    <a href="/mgt/perform">My Performances</a>
+                                </li>
+
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="sidebar-sub-toggle">
+                                <i class="ti-pencil-alt"></i>Task Tracker
+                                <span class="sidebar-collapse-icon ti-angle-down"></span>
+                            </a>
+                            <ul>
+                                <li>
+                                    <a href="/staff/create/task">Create Task</a>
+                                </li>
+
+                                <li>
+                                    <a href="/staff/task/<%= userData.mee.user_id %>">View My Tasks</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a class="sidebar-sub-toggle">
+                                <i class="ti-check-box"></i> Reports
+                                <span class="sidebar-collapse-icon ti-angle-down"></span>
+                            </a>
+                            <ul>
+                                <li>
+                                    <a href="/create/report">Create Report</a>
+                                </li>
+                                <li>
+                                    <a href="/dashboard/<%= userData.mee.user_id %>">My Report</a>
+                                </li>
+
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="sidebar-sub-toggle">
+                                <i class="ti-clipboard"></i> Leave
+                                <span class="sidebar-collapse-icon ti-angle-down"></span>
+                            </a>
+                            <ul>
+                                <li>
+                                    <a href="/staff/leave/request">Leave Form</a>
+                                </li>
+                                <li>
+                                    <a href="/staff/myleave">My Leave </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="label">Classified Menu</li>
+                        <li>
+                            <a class="sidebar-sub-toggle" href="#">
+                                <i class="ti-pencil-alt"></i>Create
+                                <span class="sidebar-collapse-icon ti-angle-down"></span>
+                            </a>
+                            <ul>
+                                <li>
+                                    <a href="/mgt/dept">Create Department</a>
+                                </li>
+                                <li>
+                                    <a href="/mgt/new">Create Management</a>
+                                </li>
+                                <li>
+                                    <a href="/staff/new">Create Staff</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="sidebar-sub-toggle" href="#">
+                                <i class="ti-user"></i>Users
+                                <span class="sidebar-collapse-icon ti-angle-down"></span>
+                            </a>
+                            <ul>
+                                <li>
+                                    <a href="/mgt/all-current">View Current Staff</a>
+                                </li>
+                                <li>
+                                    <a href="/mgt/all-resigned">View Past Staffs</a>
+                                </li>
+
+
+
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="/mgt/jvmc_sme">
+                                <i class="ti-view-list-alt"></i> Registered SME</a>
+                        </li>
+                        <li>
+                            <a href="/mgt/links">
+                                <i class="ti-home"></i> Links
+                            </a>
+                        </li>
+                        <li class="label">Finance</li>
+                        <li>
+                            <a class="sidebar-sub-toggle">
+                                <i class="ti-money"></i>Pay-Roll
+                                <span class="sidebar-collapse-icon ti-angle-down"></span>
+                            </a>
+                            <ul>
+                                <li>
+                                    <a href="/staff/generator">Generate</a>
+                                </li>
+                                <li>
+                                    <a href="/staff/myPay/<%= userData.mee.user_id %>">My Pay-Slips</a>
+                                </li>
+                                <li>
+                                    <a href="/staff/monthly">Monthly Pay-Roll</a>
+                                </li>
+
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="/staff/settings">
+                                <i class="ti-settings"></i> Settings
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/logout"> <i class="ti-close"></i> Logout</a>
+                        </li>
+                        <li>
+                            <a href="#"></a>
+                        </li>
+                        <li>
+                            <a href="#"></a>
+                        </li>
+                        <li>
+                            <a href="#"></a>
+                        </li>
+                        <li>
+                            <a href="#"></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <% } else{%>
+            <div class="sidebar sidebar-hide-to-small sidebar-shrink sidebar-gestures">
+                <div class="nano">
+                    <div class="nano-content">
+                        <div class="logo">
+                            <a href="/dashboard">
+                                <span>
+                                    <img src="/assets1/images/logo.jpg" alt="JV Management Consulting LOGO"
+                                        width="150vh" class="p-2" />
+                                </span>
+                            </a>
+                        </div>
+                        <ul>
+                            <li class="label">Main</li>
+                            <li>
+
+                                <a href="/dashboard">
+                                    <i class="ti-home"></i>My Home
+                                </a>
+                            </li>
+                            <li>
+                                <a class="sidebar-sub-toggle" href="/staff/profile">
+                                    <i class="ti-user"></i> Profile
+                                    <span class="sidebar-collapse-icon ti-angle-down"></span>
+                                </a>
+                                <ul>
+
+                                    <li>
+                                        <a href="/staff/profile">My Profile</a>
+                                    </li>
+                                    <li>
+                                        <a href="/staff/passW">Edit Password</a>
+                                    </li>
+
+                                </ul>
+                            </li>
+                            <li>
+                                <a class="sidebar-sub-toggle">
+                                    <i class="ti-email"></i> Message
+                                    <span class="sidebar-collapse-icon ti-angle-down"></span>
+                                </a>
+                                <ul>
+                                    <li>
+                                        <a href="/new/messge">Create Message</a>
+                                    </li>
+                                    <li>
+                                        <a href="/inbox/<%= userData.mee.user_id %>">Inbox </a>
+                                    </li>
+                                    <li>
+                                        <a href="/messge/<%= userData.mee.user_id %>">Sent </a>
+                                    </li>
+
+                                </ul>
+                            </li>
+
+                            <li>
+                                <a href="/staff/dept">
+                                    <i class="ti-direction"></i> Departments
+                                </a>
+                            </li>
+                            <li>
+                                <a class="sidebar-sub-toggle">
+                                    <i class="ti-notepad"></i> Vacancies
+                                    <span class="sidebar-collapse-icon ti-angle-down"></span>
+                                </a>
+                                <ul>
+                                    <li>
+                                        <a href="/create-vacancy">Create Vacancies</a>
+                                    </li>
+                                    <li>
+                                        <a href="/vacancies">Available Vacancies </a>
+                                    </li>
+
+                                </ul>
+                            </li>
+
+                            <li>
+                                <a class="sidebar-sub-toggle">
+                                    <i class="ti-pencil-alt"></i>Task Tracker
+                                    <span class="sidebar-collapse-icon ti-angle-down"></span>
+                                </a>
+                                <ul>
+                                    <li>
+                                        <a href="/staff/create/task">Create Task</a>
+                                    </li>
+
+                                    <li>
+                                        <a href="/staff/task/<%= userData.mee.user_id %>">View My Tasks</a>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <li>
+                                <a class="sidebar-sub-toggle">
+                                    <i class="ti-check-box"></i> Reports
+                                    <span class="sidebar-collapse-icon ti-angle-down"></span>
+                                </a>
+                                <ul>
+                                    <li>
+                                        <a href="/create/report">Create Report</a>
+                                    </li>
+                                    <li>
+                                        <a href="/dashboard/<%= userData.mee.user_id %>">My Report</a>
+                                    </li>
+
+                                </ul>
+                            </li>
+                            <li>
+                                <a class="sidebar-sub-toggle">
+                                    <i class="ti-clipboard"></i> Leave
+                                    <span class="sidebar-collapse-icon ti-angle-down"></span>
+                                </a>
+                                <ul>
+                                    <li>
+                                        <a href="/staff/leave/request">Leave Form</a>
+                                    </li>
+                                    <li>
+                                        <a href="/staff/myleave">My Leave </a>
+                                    </li>
+                                    <li>
+                                        <a href="/#-#">Leave Timetable </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#/#">
+                                    <i class="ti-star"></i> Trainnings
+                                </a>
+                            </li>
+                            <li class="label">Classified Menu</li>
+                            <li>
+                                <a href="/mgt/links">
+                                    <i class="ti-home"></i> Links
+                                </a>
+                            </li>
+                            <li class="label">Finance</li>
+                            <li>
+                                <a class="sidebar-sub-toggle">
+                                    <i class="ti-money"></i>Pay-Roll
+                                    <span class="sidebar-collapse-icon ti-angle-down"></span>
+                                </a>
+                                <ul>
+                                    <li>
+                                        <a href="/staff/myPay/<%= userData.mee.user_id %>">My Pay-Slips</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="/staff/settings">
+                                    <i class="ti-settings"></i> Settings
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/logout"> <i class="ti-close"></i> Logout</a>
+                            </li>
+                            <li>
+                                <a href="#"></a>
+                            </li>
+                            <li>
+                                <a href="#"></a>
+                            </li>
+                            <li>
+                                <a href="#"></a>
+                            </li>
+                            <li>
+                                <a href="#"></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <% } %>
+
+                <!-- Side Bar Section  -->
+
+                <!-- /# sidebar -->
+
+                <!-- Header Section  -->
+                <div class="header">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="float-left">
+                                    <div class="hamburger sidebar-toggle">
+                                        <span class="line"></span>
+                                        <span class="line"></span>
+                                        <span class="line"></span>
+                                    </div>
+                                </div>
+                                <div class="float-right p-2">
+
+                                    <div class="dropdown dib">
+                                        <button class="btn " type="button" data-toggle="dropdown">
+                                            &nbsp; <i class="ti-bell"></i> &nbsp; <span class="badge badge-primary">
+                                                <%= userData.notice.length %>
+                                            </span> &nbsp;
+                                        </button>
+                                        <ul class="dropdown-menu border p-3">
+                                            <li class="header-icon dib">
+                                                <div class="drop-down">
+                                                    <div class="dropdown-content-heading">
+                                                        <span class="text-left">Recent Notifications</span>
+                                                    </div>
+                                                    <div class="dropdown-content-body">
+                                                        <ul> 
+                                                            <% if ( userData.notice.length ==0 ) { %>
+                                                                <li>
+                                                                    <b>No Notification Available</b>
+                                                                </li>
+                                                                <% }else{ %>
+                                                            <% userData.notice.forEach((department)=> { %>
+                                                            <li>
+                                                                <a href="<%= department.link %>">
+                                                                    <img class="pull-left m-r-10 avatar-img"
+                                                                        src="assets/images/avatar/3.jpg" alt="" />
+                                                                    <div class="notification-content">
+                                                                        <small
+                                                                            class="notification-timestamp pull-right"><%= department.time %></small>
+                                                                        <div class="notification-heading"><%= department.title %></div>
+                                                                        <div class="notification-text"><%= department.message %> </div>
+                                                                    </div>
+                                                                </a>
+                                                            </li>
+                                                            <% }); %>
+                                                            <% } %>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+
+
+                                    </div>
+                                    <div class="dropdown dib ">
+                                        <button class="btn btn-light dropdown-toggle" type="button"
+                                            data-toggle="dropdown">&nbsp; <img class="pull-left m-r-10 avatar-img"
+                                                src="<%= userData.mee.profilePix %>" alt="Profile Picture" />
+                                            <span class="user-avatar">
+                                                <%= userData.mee.surname %>
+                                                    <%= userData.mee.otherNames %>
+                                            </span> &nbsp;
+                                            <span class="caret"></span>
+                                        </button>
+                                        <ul class="dropdown-menu border p-3">
+
+                                            <li class="header-icon dib">
+                                                <div class="drop-down dropdown-profile">
+                                                    <div class="dropdown-content-heading">
+                                                        <span class="text-left">
+                                                            <%= userData.mee.staff_id %>
+                                                        </span>
+                                                        <p class="trial-day">Dept : <%= userData.mee.department %>
+                                                        </p>
+                                                    </div>
+                                                    <div class="dropdown-content-body">
+                                                        <ul>
+                                                            <li><a href="/staff/profile"><i class="ti-user"></i>
+                                                                    <span>Profile</span></a></li>
+
+                                                            <li><a href="/inbox/<%= userData.mee.user_id %>"><i
+                                                                        class="ti-email"></i> <span>Inbox</span></a>
+                                                            </li>
+                                                            <li><a href="/staff/myPay/<%= userData.mee.user_id %>"><i
+                                                                        class="ti-money"></i> <span>Pay Slip</span></a>
+                                                            </li>
+                                                            <li><a href="/staff/settings"><i class="ti-settings"></i>
+                                                                    <span>Setting</span></a></li>
+                                                            <li><a href="/logout"><i class="ti-power-off"></i>
+                                                                    <span>Logout</span></a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>

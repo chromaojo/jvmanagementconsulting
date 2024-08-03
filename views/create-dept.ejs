@@ -1,0 +1,29 @@
+<div class="container">
+    <h2 class="ml-4 bg-facebook w-75 p-4 text-light">Create New Department</h2>
+    <div class="row">
+        <div class="card rounded w-75 ml-4 mb-3 p-4"> <br> 
+            <form action="/mgt/create/dept" method="POST">
+            
+            <div class="mb-3"> <span>Name Of The Department:</span>
+                <input type="text" name="name" class="form-control" placeholder="Department Name" required>
+            </div>
+            <div class="mb-3"> <label for="">Select Head Of Department</label>
+                <select id="department" name="hod" class="form-control mb-3" >
+                 <option value="">Select HOD</option>
+                 <% staffs.forEach((staff)=> { %>
+                    <option class="p-3" value="<%= staff.surname %> <%= staff.otherNames %>">
+                     <%= staff.surname %> <%= staff.otherNames %>
+                    </option>
+                    <% }); %>
+        
+                </select>
+
+            <div class="mb-3"><span>Objective :</span>
+                <textarea name="objective" placeholder="The Goal Of The Department " class="form-control h-100" rows="4" required></textarea>
+            </div>
+            <button type="submit" class="btn bg-facebook w-100 text-light">Create</button>
+            </form> 
+        </div> <br>
+    </div>
+</div>
+

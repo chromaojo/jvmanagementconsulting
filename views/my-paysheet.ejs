@@ -1,0 +1,52 @@
+<!-- Carousel Section  -->
+
+
+<div class="row" id="login">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-title">
+                <h4>My Payroll</h4>
+
+            </div>
+            <div class="card-body">
+                <ul class="timeline">
+                    <% if (userPay=="" ) { %>
+                        <br>
+                        <h3 class="m-5 text-center mb-5">There is no payroll available at the moment</h3>
+                        <br>
+                        <% } else{%>
+                            <% userPay.forEach((department)=> { %>
+                                <li>
+                                    <div class="timeline-badge primary"><i class="fa fa-check-circle-o"></i></div>
+                                    <div class="timeline-panel ">
+                                        <div class="row">
+                                            <div class="col-md-8">
+                                                <a href="/staff/payslip/<%= department.id %>">
+                                                    <div class="timeline-heading">
+                                                        <h5 class="timeline-title text-capitalize">
+                                                            Payroll For <%= department.name %> || <%= department.month_id %>
+                                                        </h5>
+                                                    </div>
+                                                    <div class="timeline-body">
+                                                        <p>
+                                                            Salary || <%= department.salary %> (NGN)
+                                                        </p>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                            
+                                        </div>
+
+                                    </div>
+
+                                </li>
+                                <% }); %>
+                                    <% } %>
+                </ul>
+            </div>
+        </div>
+        <!-- /# card -->
+    </div>
+    <br><br>
+</div>
+</div>

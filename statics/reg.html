@@ -1,0 +1,61 @@
+
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Stsff Register Page - JV Management Consulting</title>
+
+  <link href="/assets/img/logo.jpg" rel="icon">
+  <link href="/assets/img/logo.jpg" rel="apple-touch-icon">
+  <link href="/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/assets/css/signin.css" rel="stylesheet">
+</head>
+
+<body class="text-center">
+
+
+
+  <div class="col">
+    <main class="form-signin">
+      <form method="POST" action="/staff/register/new">
+        <img class="mb-4 border" src="/assets/img/logo.jpg" alt="" width="90" >
+        <h1 class="h3 mb-3 fw-normal">Kindly Register A New Staff</h1>
+
+        <div class="form-floating">
+          <input type="text" class="form-control" id="floatingInput" placeholder="Last Name" name="surname">
+          <label for="floatingInput">Surname</label>
+        </div> 
+        <div class="form-floating">
+          <input type="text" class="form-control" id="floatingInput" placeholder="eg John Doe" name="other_names">
+          <label for="floatingInput">Other Names</label>
+        </div> <br>
+  
+        <div class="form-floating">
+          <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" name="email">
+          <label for="floatingInput">Email address</label>
+        </div> <br>
+        <div class="form-floating">
+          <input type="number" class="form-control" id="floatingPassword" placeholder="Phone Number" name="phone_number">
+          <label for="floatingPassword">Phone Number</label>
+        </div>
+        <!-- Change this Department  to select later on  -->
+        <select id="form-select" name="#" >
+          <!-- Populate departments from the server -->
+          <% userAll.forEach((department) => { %>
+              <option value="<%= department.id %>"><%= department.name %></option>
+          <% }); %>
+      </select><br><br>
+        <button class="w-100 btn btn-lg btn-primary" type="submit">Register</button>
+        <p class="mt-5 mb-3 text-muted">&copy; JV Management Consulting</p>
+        <a href="/" class="btn btn-outline-dark">Back to Home</a>
+      </form>
+    </main>
+  </div>
+
+
+</body>
+
+</html>

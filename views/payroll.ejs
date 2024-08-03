@@ -1,0 +1,251 @@
+<section id="main-content">
+    <title> Pay-Roll || <%= month_id %></title>
+    <div class="row">
+        <div class="col-md-12">
+            <h2>Generate Payroll || <%= month_id %></h2> <br>
+            <div style="text-align: center;">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-3">
+                            <label for="salary">Select Staff </label>
+                        </div>
+                        <div class="col-5">
+                            <select class="form-control" id="salary" name="salary">
+                                <option>Choose A Staff</option>
+                                <hr>
+
+                                <% userRept.forEach((rept)=> { %>
+                                    <option value="<%= rept.salary %>/<%= rept.user_id %>/<%= rept.surname %> <%= rept.otherNames %>">
+                                        <%= rept.surname %>
+                                            <%= rept.otherNames %>
+                                    </option>
+
+                                    <% }); %>
+                            </select>
+                        </div>
+                        <div class="col-3">
+                            <button onclick="calculateTakeHome()"
+                                class="btn btn-sm btn-outline-primary">Generate</button>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-md-10">
+                <form action="/staff/fIll/payRoLl" method="POST">
+    
+                    <textarea class="form-control" name="user_id" id="fullName" hidden>
+                        <p id="fullName"></p>
+                    </textarea>
+                    <textarea class="form-control" hidden name="name" id="name" >
+                        <p id="name"></p>
+                    </textarea>
+                    <input type="text" hidden value="<%= month_id %>" name="month_id">
+                    <table id="resultTable">
+                    </table>
+                </form>
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="bootstrap-data-table-panel">
+                            <div class="table-responsive">
+                                <table id="bootstrap-data-table-export" class="table table-striped table-bordered">
+                                    <thead>
+                                        <% let count=1; %>
+                                            <tr>
+                                                <h4 class="text-end pb-3 pt-1">Pay Roll By : <%= userData.mee.surname %>
+                                                        <%= userData.mee.otherNames %>
+                                                </h4>
+                                            </tr>
+                                            <tr>
+                                                <th>S/N</th>
+                                                <th>Name</th>
+                                                <th>Monthly Salary <br> (NGN)</th>
+                                                <th>Annual Salary <br> (NGN)</th>
+                                                <th>Taxable Income <br> (NGN)</th>
+                                                <th>Annual Take Home <br> (NGN)</th>
+                                                <th>Tax <br> (NGN)</th>
+                                                <th>Consolidated Relief <br> (NGN)</th>
+                                                <th>Deductions <br> (NGN)</th>
+                                                <th>Monthly Take Home <br> (NGN)</th>
+                                                <th>Balance <br> (NGN)</th>
+                                                <th>#</th>
+                                            </tr>
+                                    </thead>
+                                    <tbody>
+                                        <% userPay.forEach((rept)=> { %>
+                                            <tr>
+                                                <th scope="row">
+                                                    <%= count++ %>
+                                                </th>
+                                                <td class="text-capitalize">
+                                                    <%= rept.name %>
+                                                </td>
+                                                <td id="mySalary">
+                                                    <%= rept.salary %>
+                                                </td>
+                                                <td class="text-capitalize">
+                                                    <%= rept.ann_salary %>
+                                                </td>
+                                                <td class="text-capitalize">
+                                                    <%= rept.taxable_inc %>
+                                                </td>
+                                                <td class="text-capitalize">
+                                                    <%= rept.annual_net %>
+                                                </td>
+                                                <td class="text-capitalize">
+                                                    <%= rept.tax %>
+                                                </td>
+                                                <td class="text-capitalize">
+                                                    <%= rept.con_relief %>
+                                                </td>
+                                                <td class="text-capitalize">
+                                                    <%= rept.deduction %>
+                                                </td>
+                                                <td class="text-capitalize">
+                                                    <%= rept.take_home %>
+                                                </td>
+                                                <td class="text-capitalize">
+                                                    <%= rept.balance %>
+                                                </td>
+                                                <td>
+                                                    <a href="/staff/del/payroLl/<%= rept.id %>" class="btn btn-sm btn-danger">Remove</a>
+                                                </td>
+                                                
+                                                
+                                                
+                                                
+                                            </tr>
+                                            <% }); %>
+    
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /# card -->
+                </div>
+                <!-- /# column -->
+            </div>
+        </div>
+    </div>
+    <!-- /# row -->
+</section>
+
+
+<script>
+
+    function calculateTakeHome() {
+        const detail = document.getElementById('salary').value;
+        const dets = detail.split('/');
+        const salary = parseFloat(dets[0]);
+        const user_id = dets[1];
+        const named = dets[2];
+
+        if (isNaN(salary) || salary <= 0) {
+            alert("Please select a staff");
+            return;
+        }
+
+        const consolidatedRelief = calculateConsolidatedRelief(salary);
+        const taxableIncome = (salary * 12) - consolidatedRelief;
+        const tax = calculateTax(taxableIncome);
+        const annualTake = (salary * 12) - tax;
+        const takeHome = annualTake / 12;
+
+        document.getElementById('fullName').textContent = user_id;
+        document.getElementById('name').textContent = named;
+        displayResults(salary, taxableIncome, takeHome, tax, consolidatedRelief);
+    }
+
+    function calculateConsolidatedRelief(salary) {
+
+        const anualSal = salary * 12
+        const minWage = 200000;  // Example minimum wage in Nigeria
+        const relief1 = minWage;
+        const relief2 = 0.2 * anualSal;
+        const anualTot = relief1 + relief2
+
+        return anualTot;
+    }
+
+    function calculateTax(taxableIncome) {
+        if (taxableIncome <= 0) return 0;
+
+        let tax = 0;
+        const taxBrackets = [
+            { limit: 300000, rate: 0.07 },
+            { limit: 600000, rate: 0.11 },
+            { limit: 1100000, rate: 0.15 },
+            { limit: 1600000, rate: 0.19 },
+            { limit: 3200000, rate: 0.21 },
+            { limit: Infinity, rate: 0.24 }
+        ];
+
+        for (let i = 0; i < taxBrackets.length; i++) {
+            if (taxableIncome > taxBrackets[i].limit) {
+                const prevLimit = taxBrackets[i - 1] ? taxBrackets[i - 1].limit : 0;
+                tax += (taxBrackets[i].limit - prevLimit) * taxBrackets[i].rate;
+            } else {
+                const prevLimit = taxBrackets[i - 1] ? taxBrackets[i - 1].limit : 0;
+                tax += (taxableIncome - prevLimit) * taxBrackets[i].rate;
+                break;
+            }
+        }
+
+        return tax;
+    }
+
+    function displayResults(salary, taxableIncome, takeHome, tax, consolidatedRelief) {
+        const table = document.getElementById('resultTable');
+        table.innerHTML = `
+        <tr> 
+            
+            <th>Monthly Salary (NGN)</th>
+            <th>Annual Salary (NGN)</th>
+            <th>Taxable Income (NGN)</th>
+            <th>Tax (NGN)</th>
+            <th>Consolidated Relief (NGN)</th>
+            <th>Annual Net (NGN)</th>
+            <th>Monthly Take Home (NGN)</th>
+            <th>Deductions (NGN)</th>
+        </tr>
+        <tr>
+            
+            <td>
+                <input type="number" readonly class="form-control" name="salary" value="${salary.toFixed(2)}" required>
+            </td>
+            <td>
+                <input type="number" readonly class="form-control" name="ann_salary" value="${salary.toFixed(2) * 12}" required>
+            </td>
+            <td>
+                <input type="number" readonly class="form-control" name="taxable_inc" value="${taxableIncome.toFixed(2)}" required>
+            </td>
+            <td>
+                <input type="number" readonly class="form-control" name="tax" value="${tax.toFixed(2)}" required>
+            </td>
+            <td>
+                <input type="number" readonly class="form-control" name="con_relief" value="${consolidatedRelief.toFixed(2)}" required>
+            </td>
+            <td>
+                <input type="number" readonly class="form-control" name="annual_net" value="${takeHome.toFixed(2) * 12}" required>
+            </td>
+            <td>
+                <input type="number" readonly class="form-control" name="take_home" value="${takeHome.toFixed(2)}" required>
+            </td>
+            <td>
+                <input type="number" class="form-control" name="deduction" placeholder="Enter Deductions" required>
+            </td>
+       
+            <td>
+                <button class="btn btn-primary" type="submit">Add</button>
+            </td>
+            
+        </tr>
+    `;
+    }
+
+</script>

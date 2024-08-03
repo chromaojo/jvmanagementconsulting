@@ -1,0 +1,26 @@
+<div class="container">
+    <h2 class="text-center">Make A Report</h2>
+    <div class="row">
+
+        <div class="card rounded w-100 p-4"> <br> 
+            <form action="/new/report" method="POST">
+            <div class="mb-3">
+                <input type="text" name="title" class="form-control" placeholder="Report Title">
+            </div>
+            <div class="mb-3">
+                <input type="text" name="name" class="form-control" value="<%= userData.mee.surname %> <%= userData.mee.otherNames %>"
+                    placeholder="Report By : <%= userData.mee.surname %> <%= userData.mee.otherNames %>" readonly>
+            </div>
+            <div class="mb-3">
+                <input type="text" name="user_id" class="form-control" value="<%= userData.mee.id %>" hidden>
+            </div>
+
+            <div class="mb-3 ">
+                <button type="submit" class="btn btn-outline-primary">Done</button>
+            </div>
+            </form>
+        </div>
+
+    </div>
+</div>
+

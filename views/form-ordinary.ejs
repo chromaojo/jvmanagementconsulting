@@ -1,0 +1,43 @@
+<div class="container">
+  <main class="form-signin">
+    <form method="POST" action="/login/account">
+      <img class="mb-4 border" src="./assets/img/logo.jpg" alt="" width="90">
+      <h1 class="h3 mb-3 fw-normal">Kindly Register A New Staff</h1>
+
+      <div class="form-floating">
+        <label for="floatingInput">Surname</label>
+        <input type="text" class="form-control mb-3" id="floatingInput" placeholder="Last Name" name="email">
+      </div>
+      <div class="form-floating">
+        <label for="floatingInput">Other Names</label>
+        <input type="text" class="form-control mb-3" id="floatingInput" placeholder="eg John Doe" name="email">
+      </div> <br>
+
+      <div class="form-floating"><label for="floatingInput">Email address</label>
+        <input type="email" class="form-control mb-3" id="floatingInput" placeholder="name@example.com" name="email">
+
+      </div> <br>
+      <div class="form-floating"><label for="floatingPassword">Phone Number</label>
+        <input type="password" class="form-control mb-3" id="floatingPassword" placeholder="Phone Number" name="phone">
+
+      </div>
+      <!-- Change this Department  to select later on  -->
+      <div class="mb-3"> <label for="">Select Department</label>
+        <select id="department" name="department" class="form-control" required>
+         <option value="">Select Department</option>
+          <!-- Populate departments from the server -->
+          <% userDept.forEach((department)=> { %>
+            <option value="<%= department.name %>">
+              <%= department.name %>
+            </option>
+            <% }); %>
+
+        </select>
+      </div>
+      <br><br>
+      <button class="w-100 btn btn-lg btn-primary" type="submit">Register</button>
+      <p class="mt-5 mb-3 text-muted">&copy; JV Management Consulting</p>
+      <a href="/" class="btn btn-outline-dark">Back to Home</a>
+    </form>
+  </main>
+</div>

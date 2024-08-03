@@ -1,0 +1,58 @@
+<div class="container">
+ 
+  <div class="card">
+    <div class="card-title">
+      <h4>List Of Departments in JV Management Consulting</h4> <br>
+      <div class="border p-4 text-center mb-3">
+        <b>
+          JV Management Consulting 
+        </b>
+      </div>
+    </div>
+    <% userDept.forEach((department)=> { %>
+      <div class="col-md-11">
+        
+            <div class="card p-0">
+              <div class="row">
+                <div class="col-md-9">
+                  <div class="stat-widget-three">
+                    <div class="stat-icon bg-primary">
+                      <i class="ti-layout-menu-v"></i>
+                    </div>
+                    <div class="stat-content">
+                      <div class="row">
+                        <div class="col-6 text-start">
+                          <div class="sstat-text">Department Id : <%= department.dept_id %>
+                          </div>
+                          <div class="sstat-text">Department : <%= department.name %>
+                          </div>
+                          <div class="stat-text">Head Of Department : <%= department.hod %>
+                          </div>
+    
+                        </div>
+                        <div class="col-6 text-start">
+    
+                          <div class="sstat-text">Objective : <%= department.objective %>
+                          </div>
+    
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col border p-4">
+                  <% if (userData.mee.user_role==='management' ) { %>
+                    <!-- If user is Management Allow this -->
+                    <a href="/mgt/del/<%= department.dept_id %>" class="badge badge-danger w-100 mt-2 p-4"> Delete
+                      Department</a>
+          
+                    <% } %>
+                </div>
+              </div>             
+            </div>
+             
+      </div><% }); %>
+
+
+  </div>
+</div>

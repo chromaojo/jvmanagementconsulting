@@ -1,0 +1,191 @@
+<h2 class="text-capitalize">Task by <%= userData.mee.surname %>
+        <%= userData.mee.otherNames %>
+           
+</h2>
+<div class="card">
+    <div class="card-title">
+        <h4>Track Task : <%= title %> .. 
+        </h4>
+        <span>
+            
+            <a href="/staff/task/<%= userData.mee.user_id %>" class="btn btn-sm btn-outline-primary ml-4">Save </a>
+            <a href="/staff/del/task/<%= taskId %>" class="btn btn-sm btn-outline-danger text-end">Delete Task</a>
+        </span>
+        <hr>
+    </div>
+    <div class="card-body mt-3 mb-3">
+        <form action="/staff/task/tracking" method="POST">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-floating">
+                        <label for="floatingInput">Input Task</label>
+                        <input type="text" class="form-control mb-3" id="floatingInput" placeholder="Task" name="task"
+                            required>
+                    </div>
+                    <div class="form-floating">
+                        <label for="floatingInput">Input Timeline</label>
+                        <input type="text" class="form-control mb-3" id="floatingInput" placeholder="Timeline"
+                            name="timeline" required>
+                    </div>
+                    <div class="form-floating">
+                        <label for="floatingInput">Input Remark: {e.g Started, Ongoing}</label>
+                        <input type="text" class="form-control mb-3" id="floatingInput" placeholder="Remark"
+                            name="remark" required>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-floating">
+                        <label for="floatingInput">Objective</label>
+                        <textarea name="objective" type="text" class="form-control mb-3 h-50" rows="10"
+                            required></textarea>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-floating">
+                        <label for="floatingInput">Target</label>
+                        <textarea name="target" type="text" class="form-control mb-3 h-50" rows="10"
+                            required></textarea>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-floating">
+                        <label for="floatingInput">Expectations</label>
+                        <textarea name="expectations" type="text" class="form-control mb-3 h-50" rows="10"
+                            required></textarea>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-floating">
+                        <label for="floatingInput">Achievement</label>
+                        <textarea name="achievement" type="text" class="form-control mb-3 h-50" rows="10"
+                            required></textarea>
+                    </div>
+                </div>
+            </div> <hr>
+            <div class="row">
+                <div class="form-floating  p-4 nb-3">
+                    <input type="text" value="<%= id %>" name="task_id" hidden>
+                    <button type="submit" class="btn w-100 btn-outline-primary btn-lg">Track Task</button>
+                </div>
+            </div>
+        </form>
+        <hr>
+        <h2 class="p-3 bg-facebook text-light text-center">Task Tracking Summary</span>
+    </div>
+
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-hover p-3">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Task</th>
+                        <th>Objective</th>
+                        <th>Target</th>
+                        <th>Timeline</th>
+                        <th>Expectations</th>
+                        <th>Achievement</th>
+                        <th>Remark</th>
+                        <th>Remove Row</th>
+                        <% let count=1; %>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <hr>
+                    <% oneRept.forEach((rept)=> { %>
+                        <tr>
+                            <th scope="row">
+                                <%= count++ %>
+                            </th>
+                            <td>
+                                <%= rept.task %>
+                            </td>
+                            <td>
+                                <% if (rept.objective) { %>
+                                    <% rept.objective.split('\n').forEach(function(line) { %>
+                                        <% if (line.trim()) { %>
+                                            <p>
+                                                <%= line %>
+                                            </p>
+                                            <% } %>
+                                                <% }); %>
+                                                    <% } %>
+
+
+                            </td>
+                            <td class="color-primary text-capitalize ">
+
+                                <% if (rept.target) { %>
+                                    <% rept.target.split('\n').forEach(function(line) { %>
+                                        <% if (line.trim()) { %>
+                                            <p>
+                                                <%= line %>
+                                            </p>
+                                            <% } %>
+                                                <% }); %>
+                                                    <% } %>
+                            </td>
+                            <td class="color-primary text-capitalize ">
+
+                                <% if (rept.timeline) { %>
+                                    <% rept.timeline.split('\n').forEach(function(line) { %>
+                                        <% if (line.trim()) { %>
+                                            <p>
+                                                <%= line %>
+                                            </p>
+                                            <% } %>
+                                                <% }); %>
+                                                    <% } %>
+                            </td>
+                            <td class="color-primary text-capitalize ">
+
+                                <% if (rept.expectations) { %>
+                                    <% rept.expectations.split('\n').forEach(function(line) { %>
+                                        <% if (line.trim()) { %>
+                                            <p>
+                                                <%= line %>
+                                            </p>
+                                            <% } %>
+                                                <% }); %>
+                                                    <% } %>
+                            </td>
+                            <td class="color-primary text-capitalize ">
+
+                                <% if (rept.remark) { %>
+                                    <% rept.remark.split('\n').forEach(function(line) { %>
+                                        <% if (line.trim()) { %>
+                                            <p>
+                                                <%= line %>
+                                            </p>
+                                            <% } %>
+                                                <% }); %>
+                                                    <% } %>
+                            </td>
+                            <td class="color-primary text-capitalize ">
+
+                                <% if (rept.achievement) { %>
+                                    <% rept.achievement.split('\n').forEach(function(line) { %>
+                                        <% if (line.trim()) { %>
+                                            <p>
+                                                <%= line %>
+                                            </p>
+                                            <% } %>
+                                                <% }); %>
+                                                    <% } %>
+                            </td>
+                            <td class="p-3">
+                                <a href="/staff/del/tracker/<%= rept.id %>" class="btn btn-danger">Remove </a>
+                            </td>
+
+                        </tr>
+                        <% }); %>
+                            <br>
+
+                </tbody>
+            </table> <br> <br>
+        </div>
+    </div>
+
+
+</div>

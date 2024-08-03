@@ -1,0 +1,73 @@
+<div class="row">
+  <div class="col-lg-12">
+    <div class="card">
+      <div class="card-title">
+        <h4>Staff Section</h4>
+      </div>
+      <div class="card-body">
+        <% if (userRept == '') { %>
+          <br> <br>
+          <h3 class="m-5 text-center mb-5">There is no data available in this category</h3>
+
+          <% } else{%>
+            <div class="table-responsive">
+              <table class="table table-hover ">
+                <thead>
+                  <tr>
+                    <th>Full Name</th>
+                    <th>Gender</th>
+                    <th>Phone Number</th>
+                    <th>Whatsapp</th>
+                    <th>Department</th>
+                    <th>Address</th>
+                    <th>Office </th>
+                    <th>Bank</th>
+                    <th>Account Number</th>
+                    <th>Approval</th>
+
+                  </tr>
+                </thead>
+                <tbody>
+                  <% userRept.forEach((staff)=> { %>
+                    <tr>
+                      <td>
+                        <%= staff.surname %> <%= staff.otherNames %>
+                      </td>
+                      <td>
+                        <%= staff.gender %> 
+                      </td>
+                      <td>
+                        <%= staff.phone_number %> 
+                      </td>
+                      <td>
+                        <%= staff.whatsapp %>
+                      </td>
+                      <td>
+                        <%= staff.department %>
+                      </td>
+                      <td>
+                        <%= staff.address %>
+                      </td>
+                      <td class="color-primary">
+                        <%= staff.office %>
+                      </td>
+                      <td>
+                        <%= staff.bank_name %>
+                      </td>
+                      <td>
+                        <%= staff.bank_account %>
+                      </td>
+                      <td>
+                       <div class="badge badge-danger">
+                        Confirmed
+                       </div>
+                      
+                    </tr>
+                    <% }); %>
+                </tbody>
+              </table>
+            </div>
+          <% } %>
+      </div>
+    </div>
+  </div>

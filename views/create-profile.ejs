@@ -1,0 +1,71 @@
+<br> <link href="/assets/css/multiform.css" rel="stylesheet">
+<div class="container-fluid">
+    <div class="row" id="portfolio">
+        <div class="col">
+            <main class="form-signin">
+              <form method="POST" id="signUpForm" action="/register/new" >
+                <img class="mb-4 border" src="/assets/img/logo.jpg" alt="" width="250" >
+                <!-- start step indicators -->
+                <div class="form-header d-flex mb-4">
+                    <span class="stepIndicator">Account Setup</span>
+                    <span class="stepIndicator">Details Setup</span>
+                    <span class="stepIndicator">Personal Details</span>
+                </div>
+                <!-- end step indicators -->
+            
+                <!-- step one -->
+                <div class="step">
+                    <p class="text-center mb-4">Ensure Your Passworrd Has More Than 8 Characters</p>
+                    <div class="mb-3">
+                        <input type="email" placeholder="Valid Email Address" oninput="this.className = ''" name="email" required>
+                    </div>
+                    <div class="mb-3">
+                        <input type="password" placeholder="Password must be 8 or more digits" oninput="this.className = ''" name="password" minlength="6">
+                    </div>
+                    <div class="mb-3">
+                        <input type="password" placeholder="Confirm Password" oninput="this.className = ''" name="password1">
+                    </div>
+                </div>
+            
+                <!-- step two -->
+                <div class="step">
+                    <p class="text-center mb-4">Your Details Section</p>
+                    <div class="mb-3">
+                        <input type="text" placeholder="Business Name / Username" oninput="this.className = ''" name="username">
+                    </div>
+                    <div class="mb-3">
+                        <input type="number" placeholder="Phone Number" oninput="this.className = ''" name="phone_number">
+                    </div>
+                    <div class="mb-3">
+                        <input type="number" placeholder="Whatsapp line" oninput="this.className = ''" name="whatsapp">
+                    </div>
+                    
+                </div>
+            
+                <!-- step three -->
+                <div class="step">
+                    <p class="text-center mb-4">Please ensure your inputs are error free</p>
+                    <div class="mb-3">
+                        <input type="text" placeholder="Address" oninput="this.className = ''" name="address">
+                    </div>
+                    <div class="mb-3">
+                        <input type="text" placeholder="Services" oninput="this.className = ''" name="service">
+                    </div>
+                    <div class="mb-3">
+                        <input type="checkbox" placeholder="Terms & Condition" oninput="this.className = ''" name="" required>
+                        <b>I have Read The Terms And Condition</b>
+                    </div>
+                </div>
+            
+                <!-- start previous / next buttons -->
+                <div class="form-footer d-flex">
+                    <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
+                    <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+                </div>
+                <!-- end previous / next buttons -->
+            </form>
+            </main>
+          </div>
+    </div>
+</div>
+<script src="/assets/js/multiform.js"></script>

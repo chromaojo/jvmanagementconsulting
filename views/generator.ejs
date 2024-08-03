@@ -1,0 +1,28 @@
+<div class="container">
+    <b><h2 class="text-center">Payroll Sheet / Appraisal</h2> <br> <hr></b>
+    <div class="row">
+
+        
+        <div class="col p-3">
+           <h4 class="text-end p-4 mt-5">Generate Monthly Payroll Sheet</h4> <br> 
+        </div>
+        <div class="col">
+            <div class="card rounded  p-4"> <br> 
+                <form action="/staff/neIw/gEn" method="POST">
+                <div class="mb-3"> <span>Select Month</span>
+                    <input type="month" name="month_id" class="form-control" placeholder="Report Title">
+                </div>
+                <div class="mb-3"> <span>Prepared By</span>
+                    <input type="text" name="prepared_by" class="form-control" value="<%= userData.mee.surname %> <%= userData.mee.otherNames %>" readonly>
+                </div>
+                
+                <div class="mb-3 ">
+                    <button type="submit" class="btn btn-outline-primary">Done</button>
+                </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div>
+

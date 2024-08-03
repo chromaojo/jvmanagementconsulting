@@ -1,0 +1,124 @@
+<div class="container-fluid">
+    <div class="card">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-title">
+                        <h4>
+                            <%= userData.mee.surname %>
+                                <%= userData.mee.otherNames %>
+                        </h4>
+                    </div>
+                    <div class="card-body">
+                        <p class="text-muted m-b-15 text-capitalize">
+                          Dept :  <%= userData.mee.department %>
+                        </p>
+                        <p class="text-muted m-b-15 text-capitalize">
+                          Office :  <%= userData.mee.office %>
+                        </p>
+                        <img src="<%= userData.mee.profilePix %>" class="img-rounded img-fluid" alt="Cinque Terre"
+                            width="150vmax">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <h1 class="p-4 mt-5 ml-5">Message Box</h1>
+                <div>
+                    <a href="/new/messge" class="btn btn-outline-primary ml-5">Compose Message</a>
+                    <a href="/inbox/<%= userData.mee.user_id %>" class="btn btn-outline-primary ml-2 active"><i
+                            class="fa fa-inbox"></i> Inbox</a>
+                    <a href="/messge/<%= userData.mee.user_id %>" class=" btn btn-outline-primary ml-2"><i
+                            class="fa fa-envelope-o"></i> Sent</a>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-title">
+                        <h3> Inbox Messages </h3>
+
+                    </div>
+                    <div class="recent-comment m-t-15">
+                        <% if (userMess=="" ) { %>
+                            <br>
+                            <h4 class="m-5 text-center mb-5">There is no message available at the moment</h4>
+                            <br>
+                            <% } else{%>
+                                <% userMess.forEach((messag)=> { %>
+                                    <div class="media p-2">
+                                        <div class="media-left">
+                                            <a href="#"><img class="media-object" src="/assets/img/logo.jpg"
+                                                    alt="..."></a>
+                                        </div>
+                                        <div class="media-body">
+                                            <a href="/messg/<%= userData.mee.user_id %>/<%= messag.id %>">
+                                                <h4 class="media-heading color-success">
+                                                    <%= messag.sender %>
+                                                </h4>
+                                                <p>
+                                                    <%= messag.title %>
+                                                </p>
+                                                <p class="comment-date">
+                                                    <%= messag.date %>
+                                                </p>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <% }); %>
+                                        <% } %>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+
+                    <% if (myMessage=="" ) { %>
+                        <br>
+                        <h2 class="text-center">Click On Any Message To View</h2>
+                        <br>
+                        <% } else{%>
+                            <div class="card-title">
+                                <div class="row">
+                                    <div class="col-7">
+                                        <h3 class="mb-2"> Message</h3>
+                                        <h4 class="mb-2"> Title: <%= myMessage.title %>
+                                        </h4> <br>
+                                        <h4> From : <%= myMessage.sender %>
+                                        </h4> <br>
+                                        <i>To : <%= myMessage.recipient %></i>
+                                        <p>
+                                            <%= myMessage.date %>
+                                                <%= myMessage.time %>
+                                        </p>
+                                    </div>
+                                    <div class="col-3">
+                                        <a href="" class="btn btn-outline-danger m-5">Delete Message</a>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="card-body">
+
+                                <p>
+                                    <% if (myMessage.content) { %>
+                                        <% myMessage.content.split('\n').forEach(function(line) { %>
+                                            <% if (line.trim()) { %>
+                                                <p>
+                                                    <%= line %>
+                                                </p>
+                                                <% } %>
+                                                    <% }); %>
+                                                        <% } %>
+                                </p>
+
+                            </div>
+                            <% } %>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

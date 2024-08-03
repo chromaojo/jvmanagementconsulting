@@ -1,0 +1,89 @@
+<link href="/assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+<link href="/assets/vendor/aos/aos.css" rel="stylesheet">
+<link href="/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+<link href="/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+<link href="/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+<link href="/assets/css/style.css" rel="stylesheet">
+
+
+<div class="container p-3">
+  <div class="row">
+    <% if (vacancy=="" ) { %>
+      <br>
+      <h3 class="m-5 text-center mb-5">There is no vacancy available at the moment</h3>
+      <br>
+      <% } else{%>
+
+        <div class="col-md-9">
+          <div class="container">
+            <article class="entry">
+
+              <div class="row">
+                <div class="col">
+                   <h2 class="entry-title text-capitalize mt-2 mb-5"><%= vacancy.title %></h2>
+                   <ul>
+                    <li class="d-flex align-items-center mb-4"><i class="bi bi-pen"> </i> &nbsp; <time datetime="2020-01-02">Job Posting Details</time>
+                    </li>
+                    <li class="d-flex align-items-center mb-4"><i class="bi bi-clock"> </i> &nbsp; <time datetime="2020-01-02"><%= vacancy.time %></time>
+                    </li>
+                    <li class="d-flex align-items-center mb-4"><i class="bi bi-bricks"></i>&nbsp; Hiring <%= vacancy.av_space %></li>
+                    <li class="d-flex align-items-center mb-4">
+                      <a href="" class="badge-danger btn btn-dangerr"><i class="ti-close"></i> Delete</a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="col">
+                  <div class="entry-img text-center">
+                    <a href="<%= vacancy.pix?vacancy.pix: "/assets1/images/logo.jpg" %>" target="_blank" rel="noopener noreferrer">
+                      <img src="<%= vacancy.pix?vacancy.pix: "/assets1/images/logo.jpg" %>"  alt="" class="img-fluid" width="450px">
+                    </a>
+                  </div>
+                </div>
+              </div>
+  
+             
+              <div class="entry-meta">
+                
+              </div>
+             
+  
+              <div class="entry-content mt-5">
+                <p>
+                  
+                  <% if (vacancy.detail) { %>
+                    <% vacancy.detail.split('\n').forEach(function(line) { %>
+                        <% if (line.trim()) { %>
+                            <span> &nbsp; &nbsp; &nbsp; &nbsp; <%= line %></span> <br>
+                        <% } %>
+                    <% }); %>
+                <% } %>
+                </p>
+                <div class="read-more ">
+                  <a href="#" class=" btn btn-outline-primary">Apply Now</a>
+                </div>
+                
+              </div>
+              
+  
+            </article><!-- End blog entry -->
+          </div>
+        </div>
+
+
+        <% } %>
+
+  </div>
+
+</div>
+
+
+<script src="/assets/vendor/purecounter/purecounter.js"></script>
+<script src="/assets/vendor/aos/aos.js"></script>
+<script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="/assets/vendor/glightbox/js/glightbox.min.js"></script>
+<script src="/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+<script src="/assets/vendor/swiper/swiper-bundle.min.js"></script>
+<script src="/assets/vendor/waypoints/noframework.waypoints.js"></script>
+<script src="/assets/vendor/php-email-form/validate.js"></script>
+<script src="/assets/js/main.js"></script>

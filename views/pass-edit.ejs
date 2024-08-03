@@ -1,0 +1,22 @@
+
+<div class="container">
+    <div class="card"><h2>Edit Password</h2>
+        <h4 class="text-danger"><%= message %></h4>
+        <div class="card rounded w-100 p-4"> <br> 
+            <form action="/staff/profile/updatePass" method="POST">
+            <div class="mb-3">
+                <input type="text" name="oldPassword" class="form-control" 
+                    placeholder="Old Password">
+            </div>
+            <div class="mb-3">
+                <input type="text" name="newPassword" class="form-control"  placeholder="New Password">
+            </div>
+        
+            <div class="mb-3 ">
+                <button type="submit" class="btn btn-outline-primary w-100">Update</button>
+            </div>
+            </form>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,39 @@
+<div class="container">
+    <div class="card">
+        <h2>Edit Your Profile Details</h2>
+        <h4 class="text-danger">
+            <%= message %>
+        </h4>
+        <div class="card rounded p-4"> <br>
+            <div class="row">
+                
+                <div class="col border p-3 mr-2">
+                    <form action="/staff/upload-pix" method="post" enctype="multipart/form-data">
+                        <div class="mb-2">
+                            <label for="profileImage" class="form-label">Change Profile Image:</label>
+                                <input class="form-control" type="file" id="profileImage" name="profileImage" required accept=".jpeg, .png, .jpg">
+                            </div>
+                       <div class="mb-1 ">
+                        <button type="submit" class="btn btn-primary w-100 btn-sm">Upload</button>
+                    </div>
+    
+                    </form>
+                </div>
+                <div class="col border p-3">
+                    <form action="/staff/credentials" method="post" enctype="multipart/form-data">
+                        <div class="mb-2">
+                            <label for="profileImage" class="form-label text-capitalize">upload credentials</label>
+                                <input class="form-control" type="file" id="profileImage" name="profileImage" required>
+                            </div>
+                       <div class="mb-1 ">
+                        <button type="submit" class="btn btn-primary w-100 btn-sm">Upload</button>
+                    </div>
+    
+                    </form>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+</div>

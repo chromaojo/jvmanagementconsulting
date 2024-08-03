@@ -1,0 +1,138 @@
+<div class="container">
+    <h2 class="text-center bg-facebook w-100 p-4 text-light">My Leave Details</h2>
+    <% if (userRept==null ) { %>
+        <br>
+        <h3 class="m-5 text-center mb-5">There is no leave available at the moment</h3>
+        <br>
+        <% } else{%>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card p-0">
+                        <div class="stat-widget-three">
+                            <div class="stat-icon bg-primary">
+                                <i class="ti-briefcase"></i>
+                            </div>
+                            <div class="stat-content">
+                                <div class="stat-digit text-capitalize">
+                                    <%= userRept.name %>
+                                </div>
+                                <div class="stat-text">Name</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card p-0">
+                        <div class="stat-widget-three">
+                            <div class="stat-icon bg-facebook">
+                                <i class="ti-briefcase"></i>
+                            </div>
+                            <div class="stat-content">
+                                <div class="stat-digit text-capitalize">
+                                    <%= userRept.department %>
+                                </div>
+                                <div class="stat-text">Department</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card p-0">
+                        <div class="stat-widget-three">
+                            <div class="stat-icon bg-primary">
+                                <i class="ti-briefcase"></i>
+                            </div>
+                            <div class="stat-content">
+                                <div class="stat-digit text-capitalize">
+                                    <%= userRept.duration %>
+                                </div>
+                                <div class="stat-text">Duration (working days)</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card p-0">
+                        <div class="stat-widget-three">
+                            <div class="stat-icon bg-facebook">
+                                <i class="ti-briefcase"></i>
+                            </div>
+                            <div class="stat-content">
+                                <div class="stat-digit">Reason For Leave</div>
+                                <div class="stat-text text-capitalize">
+                                    <%= userRept.reason %>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card p-0">
+                        <div class="stat-widget-three">
+                            <div class="stat-icon bg-primary">
+                                <i class="ti-briefcase"></i>
+                            </div>
+                            <div class="stat-content">
+                                <div class="stat-digit text-capitalize">
+                                    <%= userRept.start %>
+                                </div>
+                                <div class="stat-text">To Start</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card p-0">
+                        <div class="stat-widget-three">
+                            <div class="stat-icon bg-facebook">
+                                <i class="ti-briefcase"></i>
+                            </div>
+                            <div class="stat-content">
+                                <div class="stat-digit text-capitalize">
+                                    <%= userRept.applic_date %>
+                                </div>
+                                <div class="stat-text">Application Date</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card p-0">
+                        <div class="stat-widget-three">
+                            <div class="stat-icon bg-primary">
+                                <i class="ti-briefcase"></i>
+                            </div>
+                            <div class="stat-content">
+                                <div class="stat-digit text-capitalize">
+                                    <%= userRept.status %>
+                                </div>
+                                <div class="stat-text">Leave Status</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card p-0">
+                        <div class="stat-widget-three">
+                            <div class="stat-icon bg-facebook">
+                                <i class="ti-briefcase"></i>
+                            </div>
+                            <div class="stat-content">
+                                <div class="stat-digit text-capitalize">
+                                    <%= userRept.reason %>
+                                </div>
+                                <div class="stat-text">Reason For Leave</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> <br> <br>
+            <% } %>
+</div>
+</div>

@@ -1,0 +1,32 @@
+<div class="container"><h1 class="text-danger text-center"><%= message %></h1>
+    <h2 class="ml-4 bg-facebook w-75 p-4 text-light">Leave Request Form</h2>
+    <div class="row"> 
+
+        <div class="card rounded w-75 ml-4 mb-3 p-4"> <br> 
+            <form action="/staff/new/leave" method="POST">
+            
+            <div class="mb-3"> <span>Name In Full :</span>
+                <input type="text" name="name" class="form-control" value="<%= userData.mee.surname %> <%= userData.mee.otherNames %>"
+                    placeholder="Report By : <%= userData.mee.surname %> <%= userData.mee.otherNames %>" readonly>
+            </div>
+            <div class="mb-3"> <span>Department :</span>
+                <input type="text" name="department" class="form-control" value="<%= userData.mee.department %>" readonly>
+            </div>
+            <div class="mb-3">
+                <textarea name="reason" placeholder="Reason For Leave " class="form-control h-100" rows="4"></textarea>
+            </div>
+           <div class="mb-3">
+                <input type="number" name="duration" class="form-control" placeholder="Leave Duration (days)">
+            </div>
+            <div class="mb-3"><span>Intended Start Date</span>
+                <input type="date" name="start" class="form-control" placeholder="Report Title">
+            </div>
+            <div class="mb-3 "> 
+                <button type="submit" class="btn btn-outline-primary btn-lg w-100">Done</button>
+            </div>
+            </form> 
+        </div> <br>
+
+    </div>
+</div>
+

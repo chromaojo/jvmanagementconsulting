@@ -1,0 +1,73 @@
+<div class="container">
+  <main class="form-signin">
+    <form method="POST" action="/post/vacancy" enctype="multipart/form-data">
+      
+      <h1 class="h3 mb-3 fw-normal"><img class="mb-5 border" src="./assets/img/logo.jpg" alt="Company Logo" width="90"> <b class="mb-3"> Create A Vacancy Post </b></h1>
+
+      <div class="row">
+        <div class="col"> 
+          <div class="form-floating">
+            <label for="floatingInput">Title</label>
+            <input type="text" class="form-control mb-3" id="floatingInput" placeholder="Enter Title" name="title">
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-floating">
+            <label for="floatingInput">Vacancy Picture</label>
+            <input class="form-control" type="file" id="pix" name="pix" required accept=".jpeg, .png, .jpg">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div class="form-floating"><label for="floatingPassword">Available Seats</label>
+            <input type="number" class="form-control mb-3" id="floatingInput" placeholder="eg 23" name="av_space">
+          </div>
+
+        </div>
+        <div class="col">
+          <div class="form-floating">
+            <label for="floatingInput">Category</label>
+
+            <select name="category" class="form-control mb-3" id="floatingInput">
+              <label for="">Available Seats</label>
+              <option value="">Select a category</option>
+              <hr>
+
+              <option value="Arts and Design">Arts and Design</option>
+              <option value="Business and Finance">Business and Finance</option>
+              <option value="Education">Education</option>
+              <option value="Engineering">Engineering</option>
+              <option value="Healthcare">Healthcare</option>
+              <option value="Hospitality and Tourism">Hospitality and Tourism</option>
+              <option value="Human Resources">Human Resources</option>
+              <option value="Information Technology">Information Technology</option>
+              <option value="Law and Justice">Law and Justice</option>
+              <option value="Manufacturing and Production">Manufacturing and Production</option>
+              <option value="Media and Communication">Media and Communication</option>
+              <option value="Non-Profit and Social Services">Non-Profit and Social Services</option>
+              <option value="Real Estate and Property">Real Estate and Property</option>
+              <option value="Sales and Marketing">Sales and Marketing</option>
+              <option value="Science and Research">Science and Research</option>
+              <option value="Skilled Trades">Skilled Trades</option>
+              <option value="Transportation and Logistics">Transportation and Logistics</option>
+              <option value="Others">Others</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <br>
+      <div class="form-floating">
+        <label for="floatingInput">Job Details</label> <br>
+        <textarea name="detail" type="text" class="form-control mb-3 h-50" rows="10" required></textarea>
+      </div><br>
+
+
+      <br><br>
+      <button class="w-100 btn btn-lg btn-primary" type="submit">Create Now</button>
+      <p class="mt-5 mb-3 text-muted text-center">&copy; JV Management Consulting</p>
+
+    </form>
+  </main>
+</div>

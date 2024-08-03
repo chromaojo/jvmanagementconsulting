@@ -1,0 +1,82 @@
+  <link href="/assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+  <link href="/assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="/assets/css/style.css" rel="stylesheet">
+
+
+  <main id="main">
+    <!-- ======= Blog Section ======= -->
+    <section id="blog" class="blog">
+      <div class="container" data-aos="fade-up">
+
+        <div class="row">
+          <div class="col-md-12 entries overflow-auto" style="height: 520px;">
+            <div class="row">
+              <% if (vacancy=="" ) { %>
+                <br>
+                <h3 class="m-5 text-center mb-5">There is no vacancy available at the moment</h3>
+                <br>
+                <% } else{%>
+                  <% vacancy.forEach((vacant)=> { %>
+                    <div class="col-md-4">
+                      <article class="entry">
+
+                        <div class="entry-img text-center p-3">
+                          <img src="<%= vacant.pix?vacant.pix: "/assets1/images/logo.jpg" %>"  alt="" class="img-fluid" width="80%">
+                        </div>
+
+                        <h3 class="entry-title text-capitalize">
+                          <a href="/vacancy/<%= vacant.id %>">
+                            
+                            <%= vacant.title.substring(0,15)+ (vacant.title.length>15?"...":'') %>
+                          </a>
+                        </h3>
+
+                        <div class="entry-meta">
+                          <ul>
+                            <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a
+                                href="#"><time datetime=""><%= vacant.time %> .</time></a>
+                            </li> <br>
+                            <li class="d-flex align-items-center"> <i class="bi bi-bricks"></i> <a href="#">Hiring : <%= vacant.av_space %> </a></li>
+                          </ul>
+                        </div>
+
+                        <div class="entry-content">
+                          <p>
+                            <%= vacant.detail.substring(0,50)+ (vacant.detail.length>50?"...":'') %>
+                          </p>
+                          <div class="read-more">
+                            <a href="/vacancy/<%= vacant.id %>">Read More</a>
+                          </div>
+                        </div>
+
+                      </article><!-- End blog entry -->
+                    </div><br><br>
+
+                    <% }); %>
+                      <% } %> <br><br>
+
+            </div>
+
+          </div><!-- End blog entries list -->
+
+        </div>
+
+      </div>
+    </section><!-- End Blog Section -->
+
+  </main><!-- End #main -->
+
+
+  <script src="/assets/vendor/purecounter/purecounter.js"></script>
+  <script src="/assets/vendor/aos/aos.js"></script>
+  <script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="/assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="/assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="/assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="/assets/vendor/php-email-form/validate.js"></script>
+  <script src="/assets/js/main.js"></script>

@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Vacancy -JV Management Consulting</title>
+  <meta content="Management Consulting" name="description">
+  <meta content="Management Consulting, hr, jvmc, sme, management" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.jpeg" rel="icon">
+  <link href="assets/img/favicon.jpeg" rel="apple-touch-icon">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Montserrat:300,400,500,700"
+    rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top d-flex align-items-center ">
+    <div class="container-fluid">
+      <div class="row justify-content-center align-items-center">
+        <div class="col-xl-11 d-flex align-items-center justify-content-between">
+          <span class="logo">
+            <a href="/" class=""><img src="assets/img/logo.jpg" alt="Company Logo" class="img-fluid">
+              <small>JVMC</small></a>
+            <!-- <a href="index.html">JV Consult</a> -->
+          </span>
+          <!-- Uncomment below if you prefer to use an image logo -->
+
+
+          <nav id="navbar" class="navbar">
+            <ul>
+              <li><a class="nav-link scrollto" href="/">Home</a></li>
+              <li><a class="nav-link scrollto" href="/#about">About US</a></li>
+              <li><a class="nav-link scrollto" href="/services">Services</a></li>
+
+              <!-- <li><a class="nav-link scrollto" href="/">Vacancy</a></li> -->
+              <li class="dropdown mr-3"><a class="nav-link scrollto" href="/#facts"><span>Contact Us</span><i
+                    class="bi bi-chevron-down"></i></a>
+                <ul>
+                  <li><a class="nav-link scrollto" href="tel:+2348080821931"><i class="bi bi-telephone"> Call Us</i></a>
+                  </li>
+                  <li><a class="nav-link scrollto" href="sms:+2348023458919"><i class="bi bi-envelope"> Sms US</i></a>
+                  </li>
+                  <li><a href="https://wa.me/+2348080821931"><i class="bi bi-whatsapp"> Whatsapp Us</i></a></li>
+                </ul>
+              </li>
+              <li><a class="nav-link " href="#"></a></li>
+
+              <li><a class="nav-link scrollto btn-outline-light p-2 " href="/login">Login</a></li>
+            </ul>
+            <i class="bi bi-list mobile-nav-toggle"></i>
+          </nav><!-- .navbar -->
+        </div>
+      </div>
+    </div> <br>
+  </header><!-- End Header --> <br class="mt-3">
+  <h2 class="bg-primary text-light text-center p-3 mt-5">Job Vacancies</h2>
+
+  <main id="main">
+
+
+
+    <!-- ======= Blog Section ======= -->
+    <section id="blog" class="blog">
+      <div class="container" data-aos="fade-up">
+
+        <div class="row">
+          <div class="col-lg-8 entries overflow-auto" style="height: 650px;">
+            <div class="row">
+              <% if (vacancy=="" ) { %>
+                <br>
+                <h3 class="m-5 text-center mb-5">There is no vacancy available at the moment</h3>
+                <br>
+                <% } else{%>
+                  <% vacancy.forEach((vacant)=> { %>
+                    <div class="col-md-6">
+                      <article class="entry">
+
+                        <div class="entry-img text-center">
+                          <img src="<%= vacant.pix?vacant.pix: "/assets1/images/logo.jpg" %>"  alt="" class="img-fluid" width="75%">
+                        </div>
+
+                        <h2 class="entry-title text-capitalize">
+                          <a href="/vacancy/<%= vacant.id %>">
+                            
+                            <%= vacant.title.substring(0,20)+ (vacant.title.length>20?"...":'') %>
+                          </a>
+                        </h2>
+
+                        <div class="entry-meta">
+                          <ul>
+                            <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a
+                                href="#"><time datetime=""><%= vacant.time %></time></a>
+                            </li>
+                            <li class="d-flex align-items-center"><i class="bi bi-bricks"></i> <a href="#"><%= vacant.link %></a></li>
+                          </ul>
+                        </div>
+
+                        <div class="entry-content">
+                          <p>
+                            <%= vacant.detail.substring(0,50)+ (vacant.detail.length>50?"...":'') %>
+                          </p>
+                          <div class="read-more">
+                            <a href="/vacancy/<%= vacant.id %>">Read More</a>
+                          </div>
+                        </div>
+
+                      </article><!-- End blog entry -->
+                    </div><br><br>
+
+                    <% }); %>
+                      <% } %> <br><br>
+
+            </div>
+
+          </div><!-- End blog entries list -->
+
+          <div class="col-md-4">
+
+            <div class="sidebar">
+
+              <h3 class="sidebar-title">Search</h3>
+              <div class="sidebar-item search-form">
+                <form action="">
+                  <input type="text" class="form-control">
+                  <button type="submit"><i class="bi bi-search"></i></button>
+                </form>
+              </div><!-- End sidebar search formn-->
+              <h3 class="sidebar-title">Categories</h3>
+              <div class="sidebar-item categories">
+                <ul>
+                  <li><a href="#">General <span>(25)</span></a></li>
+                  <li><a href="#">Lifestyle <span>(12)</span></a></li>
+                  <li><a href="#">Travel <span>(5)</span></a></li>
+                  <li><a href="#">Design <span>(22)</span></a></li>
+                  <li><a href="#">Creative <span>(8)</span></a></li>
+                  <li><a href="#">Educaion <span>(14)</span></a></li>
+                </ul>
+              </div><!-- End sidebar categories-->
+
+              
+
+            </div><!-- End sidebar -->
+
+          </div><!-- End blog sidebar -->
+
+        </div>
+
+      </div>
+    </section><!-- End Blog Section -->
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-3 col-md-6 footer-info">
+            <h3>JVMC</h3>
+            <p>Our expertise cuts across various corporate management sub-disciplines with a mission to supporting
+              businesses achieve sustainable growth.</p>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>Useful Links</h4>
+            <ul>
+              <li><i class="bi bi-chevron-right"></i> <a href="/">Home</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="/services">Services</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="/sme">SME Registeration</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="/terms">Terms of service</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="/privacy">Privacy policy</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-contact">
+            <h4>Our Office</h4>
+            <p>
+              <strong>Address :</strong> Plot 16, <br>
+              Lateef Jakande Road <br>
+              Agidingbi Bus stop, Ikeja,<br>
+              Lagos, Nigeria <br>
+            </p>
+
+            <div class="social-links">
+              <a href="https://x.com/JVMC_official" target="_blank" class="twitter"><i class="bi bi-twitter"></i></a>
+              <a href="https://t.me/JVMCCAREERHUB" target="_blank" class="facebook"><i class="bi bi-telegram"></i></a>
+              <a href="https://wa.me/+2348080821931" target="_blank" class="instagram"><i
+                  class="bi bi-whatsapp"></i></a>
+              <a href="https://www.instagram.com/jvmanagementconsulting/" target="_blank" class="instagram"><i
+                  class="bi bi-instagram"></i></a>
+              <a href="https://ng.linkedin.com/company/jvmc-official?trk=public_post_feed-actor-name" target="_blank"
+                class="linkedin"><i class="bi bi-linkedin"></i></a>
+            </div>
+
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-newsletter">
+            <h4>Our Contacts</h4>
+            <small>You can click to call or or send us a mail</small> <br>
+            <p>
+              <strong>Phone Lines:</strong> <br>
+              <a href="tel:+2348080821931">+2348080821931</a> <br>
+              <a href="tel:+2348023458919">+2348023458919</a> <br>
+              <strong>Sms Lines:</strong> <br>
+              <a href="sms:+2348080821931">+2348080821931</a> <br>
+              <a href="sms:+2348023458919">+2348023458919</a> <br>
+
+              <strong>Email Address:</strong>
+              <a href="mailto:info@jvmanagementconsulting.com">info@jvmanagementconsulting.com</a>
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong>JV Consult</strong>. All Rights Reserved
+      </div>
+      <div class="credits">
+        Engineered by <a href="#">i-chroma</a>
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
+  <!-- Uncomment below i you want to use a preloader -->
+  <!-- <div id="preloader"></div> -->
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/purecounter/purecounter.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>

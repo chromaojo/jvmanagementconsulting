@@ -1,0 +1,266 @@
+<h2>Profile Page</h2> <br>
+<div class="row">
+    <div class="col-lg-4"> 
+        <div class="card border-primary rounded"> 
+            <div class="user-card-profile round-img text-center mt-3">
+                <a href="<%= userData.mee.profilePix %>">
+                    <img class="height-150" src="<%= userData.mee.profilePix %>" alt="Profile Picture">
+                </a>
+            </div>
+            <div class="designation m-t-27 m-b-27 text-center">
+                <h4 class="text-capitalize">
+                    <%= userData.mee.surname %>
+                        <%= userData.mee.otherNames %>
+                </h4>
+                <h6 class="text-capitalize">
+                    <%= userData.mee.office %>
+                </h6>
+            </div>
+             <hr>
+             <% if (userData.mee.profilePix === null) { %>
+                <div class="mb-2 text-center"> <b>Upload Profile Picture</b>
+                    <form action="/staff/upload-pix" method="post" enctype="multipart/form-data">
+                        <div class="row">
+                            <div class="col">
+                                <label for="profileImage" class="form-label">Profile Image:</label>
+                                <input class="form-control" type="file" id="profileImage" name="profileImage" required accept=".jpg, .jpeg, .png"><br>
+                            </div>
+                            <div class="col">
+                                <button type="submit" class="btn btn-primary mt-3 btn-lg">Upload</button>
+                            </div>
+                        </div>
+                       <br>
+    
+                    </form>
+                </div>
+            <% } else { %>
+                <div class="social-connect text-center">
+                    <ul>
+                        <li class="social-item"><a href="https://www.instagram.com/jvmanagementconsulting/"><i class="ti-instagram text-primary"></i> </a></li>
+                        <li class="social-item"><a href="https://t.me/JVMCCAREERHUB"><i class="ti-telegram text-primary"></i> </a></li>
+                        <li class="social-item"><a href="https://x.com/JVMC_official"><i class="ti-twitter text-primary"></i> </a></li>
+                        <li class="social-item"><a href="https://ng.linkedin.com/company/jvmc-official?trk=public_post_feed-actor-name"><i class="ti-linkedin text-primary"></i> </a></li>
+                    </ul>
+                </div>
+            <% } %>
+            
+        </div>
+    </div>
+ 
+    <div class="col-lg-8">
+        <div class="card  rounded">
+            <div class="user-card-profile text-center">
+                <img class="height-150" src="/assets1/images/logo.jpg" alt="company logo">
+            </div>
+            <div class="designation m-t-27 m-b-27 text-center">
+                <h4 class="text-capitalize">A <%= userData.mee.user_role %> of JV Management Consulting</h4>
+                <h6 class="text-capitalize">
+                    <%= userData.mee.department %> Department
+                </h6>
+            </div>
+            <div class="social-connect text-center">
+                <ul>
+                    <li class="social-item"><a href="https://www.instagram.com/jvmanagementconsulting/"><i class="ti-instagram text-primary"></i> </a></li>
+                    <li class="social-item"><a href="https://t.me/JVMCCAREERHUB"><i class="ti-tumblr-alt text-primary"></i> </a></li>
+                    <li class="social-item"><a href="https://x.com/JVMC_official"><i class="ti-twitter text-primary"></i> </a></li>
+                    <li class="social-item"><a href="https://ng.linkedin.com/company/jvmc-official?trk=public_post_feed-actor-name"><i class="ti-linkedin text-primary"></i> </a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+   
+    
+</div>
+<div class="row" id="profile">
+    <div class="col-lg-3">
+        <div class="card">
+            <div class="stat-widget-one">
+                <div class="stat-icon dib"><i class="ti-user color-primary border-primary"></i>
+                </div>
+                <div class="stat-content dib">
+                    <div class="stat-text">Surname</div>
+                    <div class="stat-digit capitalize">
+                        <%= userData.mee.surname %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3">
+        <div class="card">
+            <div class="stat-widget-one">
+                <div class="stat-icon dib"><i class="ti-user color-primary border-primary"></i>
+                </div>
+                <div class="stat-content dib">
+                    <div class="stat-text">Other Names</div>
+                    <div class="stat-digit">
+                        <%= userData.mee.otherNames %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3">
+        <div class="card">
+            <div class="stat-widget-one">
+                <div class="stat-icon dib"><i class="ti-layout-grid2 color-primary border-primary"></i>
+                </div>
+                <div class="stat-content dib">
+                    <div class="stat-text"> <%= userData.mee.staff_id %></div>
+                    <div class="stat-digit text-capitalize">
+                        Staff Id
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3">
+        <div class="card">
+            <div class="stat-widget-one">
+                <div class="stat-icon dib"><i class="ti-user color-primary border-primary"></i>
+                </div>
+                <div class="stat-content dib">
+                    <div class="stat-text">Gender</div>
+                    <div class="stat-digit">
+                        <%= userData.mee.gender %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+</div>
+<div class="row">
+    <div class="col-lg-3">
+        <div class="card">
+            <div class="stat-widget-one">
+                <div class="stat-icon dib"><i class="ti-user color-success border-success"></i>
+                </div>
+                <div class="stat-content dib">
+                    <div class="stat-text">Job Status</div>
+                    <div class="stat-digit">
+                        <%= userData.mee.job_status %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3">
+        <div class="card">
+            <div class="stat-widget-one">
+                <div class="stat-icon dib"><i class="ti-mobile color-primary border-primary"></i></div>
+                <div class="stat-content dib">
+                    <div class="stat-text">Phone</div>
+                    <div class="stat-digit">
+                        <%= userData.mee.phone_number %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-lg-3">
+        <div class="card">
+            <div class="stat-widget-one">
+                <div class="stat-icon dib"><i class="ti-themify-favicon-alt color-pink border-pink"></i>
+                </div>
+                <div class="stat-content dib">
+                    <div class="stat-text">Whatsapp</div>
+                    <div class="stat-digit"><%= userData.mee.whatsapp %></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3">
+        <div class="card">
+            <div class="stat-widget-one">
+                <div class="stat-icon dib"><i class="ti-link color-danger border-danger"></i></div>
+                <div class="stat-content dib">
+                    <div class="stat-text">Office</div>
+                    <div class="stat-digit">
+                        <%= userData.mee.office %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div class="row">
+    <div class="col-lg-4">
+        <div class="card">
+            <div class="stat-widget-one">
+                <div class="stat-icon dib"><i class="ti-money color-success border-success"></i>
+                </div>
+                <div class="stat-content dib">
+                    <div class="stat-text">Bank Name</div>
+                    <div class="stat-digit">
+                        <%= userData.mee.bank_name %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4">
+        <div class="card">
+            <div class="stat-widget-one">
+                <div class="stat-icon dib"><i class="ti-money color-success border-success"></i>
+                </div>
+                <div class="stat-content dib">
+                    <div class="stat-text">Bank Account</div>
+                    <div class="stat-digit">
+                        <%= userData.mee.bank_account %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4">
+        <div class="card">
+            <div class="stat-widget-one">
+                <div class="stat-icon dib"><i class="ti-money color-success border-success"></i>
+                </div>
+                <div class="stat-content dib">
+                    <div class="stat-text">Account Name</div>
+                    <div class="stat-digit">
+                        <%= userData.mee.account_name %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+<div class="row">
+    <div class="col-lg-6">
+        <div class="card">
+            <div class="stat-widget-one">
+                <div class="stat-icon dib"><i class="ti-money color-success border-success"></i>
+                </div>
+                <div class="stat-content dib">
+                    <div class="stat-text">Email Address</div>
+                    <div class="stat-digit">
+                        <%= userData.mee.email %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-6">
+        <div class="card">
+            <div class="stat-widget-one">
+                <div class="stat-icon dib"><i class="ti-layout-grid2 color-pink border-pink"></i>
+                </div>
+                <div class="stat-content dib">
+                    <div class="stat-text">
+                        <%= userData.mee.address %>
+                    </div>
+                    <div class="stat-digit">Residential Address</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

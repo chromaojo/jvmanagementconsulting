@@ -1,0 +1,26 @@
+<div class="container">
+    <h2 class="text-center">Create Task</h2>
+    <div class="row">
+
+        <div class="card rounded w-100 p-4"> <br> 
+            <form action="/staff/new/Task" method="POST">
+            <div class="mb-3"> <span>Enter Task Title</span>
+                <input type="text" name="title" class="form-control" placeholder="Task Title">
+            </div>
+            <div class="mb-3"> <span>Task Created By : <%= userData.mee.surname %> <%= userData.mee.otherNames %></span>
+                <input type="text" name="name" class="form-control" value="<%= userData.mee.surname %> <%= userData.mee.otherNames %>"
+                     readonly>
+            </div>
+            <div class="mb-3">
+                <input type="text" name="user_id" class="form-control" value="<%= userData.mee.id %>" hidden>
+            </div>
+
+            <div class="mb-3 ">
+                <button type="submit" class="btn btn-outline-primary">Track It</button>
+            </div>
+            </form>
+        </div>
+
+    </div>
+</div>
+

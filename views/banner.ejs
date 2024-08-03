@@ -1,0 +1,52 @@
+<div class="container">
+  <main class="form-signin">
+
+    <h2 class="text-c">Home Page Slider </h2>
+    <hr>
+
+    <h1 class="text-success text-capitalize text-center">
+      <%= respond %>
+    </h1>
+    <div class="border p-4 mb-3"> <br>
+      <h4 class="text-center ">First Slide</h4>
+      <form method="POST" action="/staff/first/banner">
+        <div class="form-floating">
+          <label for="floatingInput">Title</label>
+          <%= balance.title %>
+            <input type="text" required class="form-control mb-3" id="floatingInput" placeholder="A Simple Title"
+              name="title">
+        </div>
+        <div class="form-floating">
+          <label for="floatingInput">Message</label>
+          <input type="text" required class="form-control mb-3" id="floatingInput"
+            placeholder="A short information to pass across" name="message">
+        </div>
+
+        <button type="submit" class="btn btn-primary w-100 m-b-10 m-l-5"
+          id="toastr-success-top-full-width">Publish</button>
+        <br>
+      </form>
+    </div>
+
+    <div class="border p-4 mt-2" id="sec"> <hr>
+      <h3 class="text-center ">Second Slide</h3>
+      <form method="POST" action="/staff/next/banner">
+        <div class="form-floating">
+          <label for="floatingInput">Title</label>
+          <%= balance.title2 %>
+            <input type="text" required class="form-control mb-3" id="floatingInput" placeholder="A Simple Title"
+              name="title2">
+        </div>
+        <div class="form-floating">
+          <label for="floatingInput">Message</label>
+          <input type="text" class="form-control mb-3" required id="floatingInput"
+            placeholder="A short information to pass across" name="message2">
+        </div>
+        <button class="w-100 btn btn-lg btn-primary" type="submit">Publish</button>
+        <br>
+      </form>
+    </div>
+
+    <br><br>
+  </main>
+</div>
