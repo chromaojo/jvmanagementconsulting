@@ -383,10 +383,10 @@ route.get('/dashboard', UserLoggin, async (req, res) => {
 
         const userData = userCookie
 
-        if (userData.mee.user_role = 'management') {
+        if (userData.mee.user_role === 'management') {
             console.log("The user role is ", userData.mee)
             const userRept = await new Promise((resolve, reject) => {
-                const stat = userId = 'finished';
+                const stat = 'finished';
                 const sqls = `SELECT * FROM jvmc.jvmc_report WHERE progress = ? ORDER BY id DESC;`;
                 db.query(sqls, [stat], (err, results) => {
                     if (err) return reject(err);
@@ -408,7 +408,7 @@ route.get('/dashboard', UserLoggin, async (req, res) => {
             // Execute the query 
 
             const userNot = await new Promise((resolve, reject) => {
-                const user_Id = userData.user_id;
+                const user_Id = userData.mee.user_id;
                 const sqls = `SELECT * FROM jvmc.jvmc_notification WHERE user_id = ? ORDER BY id DESC; `;
                 db.query(sqls, [user_Id], (err, results) => {
                     if (err) return reject(err);
@@ -455,7 +455,7 @@ route.get('/dashboard/:user_id', UserLoggin, (req, res) => {
     const userCookie = req.cookies.user ? JSON.parse(req.cookies.user) : null;
 
     if (userCookie) {
-        const user_id = userCookie.user_id
+        const user_id = userCookie.mee.user_id
         const progress = 'pending'
         const sql = `
           SELECT * FROM jvmc.jvmc_report WHERE user_id = ? AND progress = ?  ORDER BY id DESC ;
@@ -471,7 +471,6 @@ route.get('/dashboard/:user_id', UserLoggin, (req, res) => {
             req.app.set('userRept', results)
             const userData = userCookie
             const userRept = req.app.get('userRept');
-            console.log("User Id Details is ", results)
             res.render('home1', { userRept, userData, announce });
         });
 
@@ -551,7 +550,7 @@ route.post('/new/report', async (req, res) => {
 
     const userData = req.cookies.user ? JSON.parse(req.cookies.user) : null;
     const { name, title } = req.body;
-    const user_id = userData.user_id
+    const user_id = userData.mee.user_id
     const report_id = rand + 'JvMc' + rando
     const currentDate = new Date();
     // Extract date part  
@@ -730,7 +729,7 @@ route.post('/submitR/:id', UserLoggin, async (req, res) => {
 
         }
 
-        res.redirect('/dashboard/' + userData.user_id)
+        res.redirect('/dashboard/' + userData.mee.user_id)
 
     })
 
@@ -755,7 +754,7 @@ route.post('/submitT/:id', UserLoggin, async (req, res) => {
 
         }
 
-        res.redirect('/staff/task/' + userData.user_id)
+        res.redirect('/staff/task/' + userData.mee.user_id)
 
     })
 
@@ -1130,7 +1129,7 @@ route.post('/send/messg', async (req, res) => {
 
     const userData = req.cookies.user ? JSON.parse(req.cookies.user) : null;
     const { sender, reciever, title, content } = req.body;
-    const user_id = userData.user_id;
+    const user_id = userData.mee.user_id;
     const currentDate = new Date();
     const recipient_id = reciever.toString().split('/')[0]
     const recipient = reciever.toString().split('/')[1]

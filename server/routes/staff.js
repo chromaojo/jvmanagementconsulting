@@ -215,7 +215,7 @@ route.post('/upload-pix', upload.single('profileImage'), (req, res) => {
     const imagePath = imageP.replace('/public', '');
     const userData = req.cookies.user ? JSON.parse(req.cookies.user) : null;
 
-    const user_id = userData.user_id
+    const user_id = userData.mee.user_id
 
     const sql = `UPDATE jvmc.jvmc_profile SET profilePix = ? WHERE user_id = ?;
     `;
@@ -242,7 +242,7 @@ route.get('/profile', UserLoggin, (req, res) => {
     if (!userCookie) {
         res.redirect('/login');
     } else {
-        const user = db.query('SELECT * FROM jvmc.jvmc_users WHERE email = ?', [userData.email], async (error, result) => {
+        const user = db.query('SELECT * FROM jvmc.jvmc_users WHERE email = ?', [userData.mee.email], async (error, result) => {
 
             if (error) {
                 console.log(" Login Error :", error);
@@ -282,7 +282,7 @@ route.post('/profile/updatePass', UserLoggin, async (req, res) => {
 
         // Retrieve the current hashed password from the database
         const selectQuery = 'SELECT password FROM jvmc.jvmc_users WHERE email = ?';
-        let selectValues = [userData.email];
+        let selectValues = [userData.mee.email];
 
         db.query(selectQuery, selectValues, async (selectError, selectResults) => {
             if (selectError) {
@@ -307,7 +307,7 @@ route.post('/profile/updatePass', UserLoggin, async (req, res) => {
 
                 // Update the password in the database
                 const updateQuery = 'UPDATE jvmc.jvmc_users SET password = ? WHERE email = ?';
-                const updateValues = [hashedNewPassword, userData.email];
+                const updateValues = [hashedNewPassword, userData.mee.email];
 
                 db.query(updateQuery, updateValues, updateError => {
                     if (updateError) {
@@ -340,7 +340,7 @@ route.post('/profile/updatePass', UserLoggin, async (req, res) => {
                     LEFT JOIN jvmc.jvmc_profile a ON u.user_id = a.user_id
                     WHERE u.email = ?;
                   `;
-                    db.query(sqlGetUserWithAccount, [userData.email], async (error, result) => {
+                    db.query(sqlGetUserWithAccount, [userData.mee.email], async (error, result) => {
                         if (error) {
 
                             return res.status(500).json({
@@ -439,7 +439,7 @@ route.get('/leave/request', (req, res) => {
 route.post('/new/leave', async (req, res) => {
 
     const userData = req.cookies.user ? JSON.parse(req.cookies.user) : null;
-    const leave_id = userData.user_id;
+    const leave_id = userData.mee.user_id;
     db.query('SELECT leave_id FROM jvmc.jvmc_leave WHERE leave_id = ?', [leave_id], async (error, result) => {
         if (error) {
 
@@ -504,7 +504,7 @@ route.get('/myleave', UserLoggin, (req, res) => {
 
     const userCookie = req.cookies.user ? JSON.parse(req.cookies.user) : null;
     const userData = userCookie
-    const leave_id = userCookie.user_id
+    const leave_id = userCookie.mee.user_id
     if (userCookie) {
         const sqlQuery = 'SELECT * FROM jvmc.jvmc_leave WHERE leave_id = ?';
 
@@ -567,7 +567,7 @@ route.get('/task/:user_id', UserLoggin, (req, res) => {
     const userCookie = req.cookies.user ? JSON.parse(req.cookies.user) : null;
  
     if (userCookie) {
-        const user_id = userCookie.user_id
+        const user_id = userCookie.mee.user_id
         const progress = 'pending'
         const sql = `
           SELECT * FROM jvmc.jvmc_task WHERE user_id = ? AND progress = ? ORDER BY id DESC ;
@@ -581,6 +581,7 @@ route.get('/task/:user_id', UserLoggin, (req, res) => {
             req.app.set('userRept', results)
             const userData = userCookie
             const userRept = req.app.get('userRept');
+            console.log('This is the Task',results)
             res.render('task', { userRept, userData, announce });
         });
 
@@ -658,7 +659,7 @@ route.post('/new/Task', async (req, res) => {
 
     const userData = req.cookies.user ? JSON.parse(req.cookies.user) : null;
     const { name, title } = req.body;
-    const user_id = userData.user_id
+    const user_id = userData.mee.user_id
     const task_id = rand + 'JvMc' + rando
     const currentDate = new Date();
     // Extract date part  
@@ -837,7 +838,7 @@ route.get('/del/task/:id', UserLoggin, (req, res) => {
                 return res.status(404).send('task content not found');
             } // task content successfully deleted
 
-            const userId = userCookie.user_id
+            const userId = userCookie.mee.user_id
             res.redirect('/staff/task/'+userId);
         });
 
@@ -852,7 +853,7 @@ route.get('/del/task/:id', UserLoggin, (req, res) => {
 route.get('/banner', UserLoggin, (req, res) => {
 
     const userData = req.cookies.user ? JSON.parse(req.cookies.user) : null;
-    console.log('My Bannerdetails is ', balance)
+  
 
     res.render('banner', { userData, balance, respond });
 })
@@ -1051,7 +1052,7 @@ route.get('/myPay/:user_id', UserLoggin, (req, res) => {
     const userCookie = req.cookies.user ? JSON.parse(req.cookies.user) : null;
 
     if (userCookie) {
-        const user_id = userCookie.user_id
+        const user_id = userCookie.mee.user_id
         const sql = `
           SELECT * FROM jvmc.jvmc_payroll WHERE user_id = ?  ORDER BY id DESC ;
         `;
