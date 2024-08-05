@@ -1,23 +1,23 @@
 require('dotenv').config();
 const mysql = require('mysql');
 
-// const db = mysql.createConnection({
-//     host: process.env.HOST,
-//     user: process.env.USER,
-//     password: process.env.PASS,
-//     database: process.env.DATABASE,
-//     waitForConnections: true,
-//   });
-
 const db = mysql.createConnection({
+    host: process.env.Host,
+    user: process.env.User,
+    password: process.env.Password,
+    database: process.env.Database,
+    waitForConnections: true,
+  });
 
-  host: 'localhost',
-  user: 'root',
-  password: 'Oluchroma234',
-  database: 'jvmc',
-  waitForConnections: true,
+// const db = mysql.createConnection({
 
-});
+//   host: 'localhost',
+//   user: 'root',
+//   password: 'Oluchroma234',
+//   database: 'jvmc',
+//   waitForConnections: true,
+
+// });
 
 
 // Workbench Setting 
